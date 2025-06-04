@@ -1,0 +1,62 @@
+#!/usr/bin/env bun
+
+import { join } from "path";
+import { readdir, stat, writeFile } from "fs/promises";
+import { parse } from "@iarna/toml";
+import { file } from "bun";
+
+async function build() {
+  const providersDir = join(import.meta.dir, "..", "providers");
+  const outputPath = join(import.meta.dir, "..", "data.json");
+  const result = {};
+
+  try {
+    const providers = await readdir(providersDir);
+
+    for (const provider of providers) {
+      const providerPath = join(providersDir, provider);
+      const providerStat = await stat(providerPath);
+      if (!providerStat.isDirectory()) continue;
+
+      console.log(`Processing provider: ${provider}`);
+
+      // Read provider.toml
+      const providerTomlFile = file(join(providerPath, "provider.toml"));
+      const providerContent = parse(await providerTomlFile.text());
+      result[provider] = {
+        ...providerContent,
+        models: {},
+      };
+
+      // Process models
+      const modelsPath = join(providerPath, "models");
+      const modelFiles = await readdir(modelsPath);
+      const tomlFiles = modelFiles.filter((file) => file.endsWith(".toml"));
+
+      for (const modelFile of tomlFiles) {
+        const modelPath = join(modelsPath, modelFile);
+        console.log(`  Processing model: ${modelFile}`);
+
+        const modelTomlFile = file(modelPath);
+        const modelContent = parse(await modelTomlFile.text());
+
+        // Use filename without extension as the model ID
+        const modelId = modelFile.replace(/\.toml$/, "");
+        result[provider].models[modelId] = modelContent;
+      }
+    }
+
+    // Write the result to data.json
+    await writeFile(outputPath, JSON.stringify(result, null, 2));
+    console.log(
+      `\n✅ Successfully built data.json with ${
+        Object.keys(result).length
+      } providers`
+    );
+  } catch (err) {
+    console.error(`❌ Error: ${err.message}`);
+    process.exit(1);
+  }
+}
+
+build();
