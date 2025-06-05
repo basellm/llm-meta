@@ -1,0 +1,13 @@
+name = "o1-mini"
+attachment = false
+reasoning = true
+
+[cost]
+input = 3.00
+output = 12.00
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 128_000
+output = 65_536
