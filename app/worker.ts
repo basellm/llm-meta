@@ -3,7 +3,7 @@ export default {
     const url = new URL(req.url);
 
     if (url.pathname !== "/") {
-      return Response.redirect("/", 302);
+      return Response.redirect(url.origin, 302);
     }
 
     return new Response(
