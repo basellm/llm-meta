@@ -4,33 +4,8 @@ import { join } from "path";
 import { readdir, stat } from "fs/promises";
 import { parse } from "@iarna/toml";
 import { file } from "bun";
+import { ModelSchema, ProviderSchema } from "../app/schemas";
 import { z } from "zod";
-
-// Define schema for provider.toml
-const ProviderSchema = z
-  .object({
-    name: z.string().min(1, "Provider name cannot be empty"),
-  })
-  .strict();
-
-// Define schema for model files
-const ModelSchema = z
-  .object({
-    name: z.string().min(1, "Model name cannot be empty"),
-    attachment: z.boolean().default(false).optional(),
-    reasoning: z.boolean().default(false).optional(),
-    cost: z.object({
-      input: z.number().min(0, "Input price cannot be negative"),
-      output: z.number().min(0, "Output price cannot be negative"),
-      inputCached: z.number().min(0, "Input cached price cannot be negative"),
-      outputCached: z.number().min(0, "Output cached price cannot be negative"),
-    }),
-    limit: z.object({
-      context: z.number().min(0, "Context window must be positive"),
-      output: z.number().min(0, "Output tokens must be positive"),
-    }),
-  })
-  .strict();
 
 async function validate() {
   const providersDir = join(import.meta.dir, "..", "providers");
