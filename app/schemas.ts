@@ -29,3 +29,13 @@ export const ModelSchema = z
 // Define types based on schemas
 export type Provider = z.infer<typeof ProviderSchema>;
 export type Model = z.infer<typeof ModelSchema>;
+
+// Define the API data structure
+export interface ApiData {
+  [providerId: string]: Provider & {
+    id: string;
+    models: {
+      [modelId: string]: Model & { id: string };
+    };
+  };
+}

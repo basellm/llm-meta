@@ -26,6 +26,7 @@ async function build() {
       const providerContent = parse(await providerTomlFile.text());
       result[provider] = {
         ...providerContent,
+        id: provider,
         models: {},
       };
 
@@ -43,7 +44,10 @@ async function build() {
 
         // Use filename without extension as the model ID
         const modelId = modelFile.replace(/\.toml$/, "");
-        result[provider].models[modelId] = modelContent;
+        result[provider].models[modelId] = {
+          ...modelContent,
+          id: modelId,
+        };
       }
     }
 
