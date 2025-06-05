@@ -40,12 +40,19 @@ app.get("/", async (c) => {
         </head>
         <body>
           <h1>API Data</h1>
-          <table>
+          <table border="1" cellpadding="5" cellspacing="0">
             <thead>
               <tr>
                 <th>Provider</th>
                 <th>Model</th>
-                <th>Details</th>
+                <th>Attachment</th>
+                <th>Reasoning</th>
+                <th>Input Cost</th>
+                <th>Output Cost</th>
+                <th>Input Cached Cost</th>
+                <th>Output Cached Cost</th>
+                <th>Context Limit</th>
+                <th>Output Limit</th>
               </tr>
             </thead>
             <tbody>
@@ -54,9 +61,14 @@ app.get("/", async (c) => {
                   <tr key={`${providerId}-${modelId}`}>
                     <td>{provider.name}</td>
                     <td>{model.name}</td>
-                    <td>
-                      <pre>{JSON.stringify(model, null, 2)}</pre>
-                    </td>
+                    <td>{model.attachment ? "Yes" : "No"}</td>
+                    <td>{model.reasoning ? "Yes" : "No"}</td>
+                    <td>${model.cost.input}</td>
+                    <td>${model.cost.output}</td>
+                    <td>${model.cost.inputCached}</td>
+                    <td>${model.cost.outputCached}</td>
+                    <td>{model.limit.context}</td>
+                    <td>{model.limit.output}</td>
                   </tr>
                 ))
               )}
