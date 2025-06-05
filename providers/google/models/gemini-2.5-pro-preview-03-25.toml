@@ -1,0 +1,13 @@
+name = "Gemini 2.5 Pro"
+attachment = true
+reasoning = false
+
+[cost]
+input = 1.25
+output = 10.00
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 1_000_000
+output = 50_000
