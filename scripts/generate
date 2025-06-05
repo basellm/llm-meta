@@ -1,13 +1,14 @@
 #!/usr/bin/env bun
 
 import { join } from "path";
-import { readdir, stat, writeFile } from "fs/promises";
+import { readdir, stat, writeFile, mkdir } from "fs/promises";
 import { parse } from "@iarna/toml";
 import { file } from "bun";
 
 async function build() {
   const providersDir = join(import.meta.dir, "..", "providers");
-  const outputPath = join(import.meta.dir, "..", "data.json");
+  const distDir = join(import.meta.dir, "..", "dist");
+  const outputPath = join(distDir, "api.json");
   const result = {};
 
   try {
@@ -47,7 +48,8 @@ async function build() {
     }
 
     // Write the result to data.json
-    await writeFile(outputPath, JSON.stringify(result, null, 2));
+    await mkdir(distDir, { recursive: true });
+    await writeFile(outputPath, JSON.stringify(result));
     console.log(
       `\n✅ Successfully built data.json with ${
         Object.keys(result).length
