@@ -1,0 +1,13 @@
+name = "Claude 3 Opus"
+attachment = true
+reasoning = false
+
+[cost]
+input = 15.00
+output = 75.00
+inputCached = 1.50
+outputCached = 1.50
+
+[limit]
+context = 200_000
+output = 4_096

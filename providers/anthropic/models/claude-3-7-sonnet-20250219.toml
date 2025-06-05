@@ -1,0 +1,13 @@
+name = "Claude 3.7 Sonnet"
+attachment = true
+reasoning = true
+
+[cost]
+input = 3.00
+output = 15.00
+inputCached = 0.30
+outputCached = 0.30
+
+[limit]
+context = 200_000
+output = 64_000

@@ -1,0 +1,13 @@
+name = "Claude 3.5 Sonnet v2"
+attachment = true
+reasoning = false
+
+[cost]
+input = 3.00
+output = 15.00
+inputCached = 0.30
+outputCached = 0.30
+
+[limit]
+context = 200_000
+output = 8_192
