@@ -11,4 +11,4 @@ outputCached = 0.00
 
 [limit]
 context = 128_000
-output = 4_096
+output = 128_000
