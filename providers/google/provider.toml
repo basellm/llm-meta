@@ -1,1 +1,2 @@
 name = "Google"
+env = ["GOOGLE_API_KEY"]

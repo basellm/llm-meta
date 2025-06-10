@@ -1,0 +1,14 @@
+name = "Grok 2 Vision Latest"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 2.00
+output = 10.00
+inputCached = 2.00
+outputCached = 10.00
+
+[limit]
+context = 8_192
+output = 4_096

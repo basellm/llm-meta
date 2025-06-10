@@ -1,0 +1,14 @@
+name = "Grok Beta"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 5.00
+output = 15.00
+inputCached = 5.00
+outputCached = 15.00
+
+[limit]
+context = 131_072
+output = 4_096

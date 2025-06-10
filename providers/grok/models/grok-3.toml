@@ -1,6 +1,0 @@
-name = "grok-3"
-attachment = false
-reasoning = false
-temperature = true
-cost = { input = 0.00003, output = 0.00015, inputCached = 0.0000075, outputCached = 0.00015 }
-limit = { context = 131072, output = 4096 }

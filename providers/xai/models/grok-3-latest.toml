@@ -1,0 +1,14 @@
+name = "Grok 3 Latest"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 3.00
+output = 15.00
+inputCached = 0.75
+outputCached = 15.00
+
+[limit]
+context = 131_072
+output = 8_192

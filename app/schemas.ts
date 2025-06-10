@@ -4,6 +4,7 @@ import { z } from "zod";
 export const ProviderSchema = z
   .object({
     name: z.string().min(1, "Provider name cannot be empty"),
+    env: z.array(z.string()).min(1, "Provider env cannot be empty"),
   })
   .strict();
 

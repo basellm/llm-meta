@@ -1,6 +1,0 @@
-name = "grok-3-mini-fast"
-attachment = false
-reasoning = true
-temperature = true
-cost = { input = 0.000006, output = 0.00004, inputCached = 0.0000015, outputCached = 0.00004 }
-limit = { context = 131072, output = 4096 }

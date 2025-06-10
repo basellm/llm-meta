@@ -1,1 +1,2 @@
 name = "Mistral"
+env = ["MISTRAL_API_KEY"]

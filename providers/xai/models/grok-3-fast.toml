@@ -1,0 +1,14 @@
+name = "Grok 3 Fast"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 5.00
+output = 25.00
+inputCached = 1.25
+outputCached = 25.00
+
+[limit]
+context = 131_072
+output = 8_192

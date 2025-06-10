@@ -1,0 +1,14 @@
+name = "Grok 3 Mini Fast Latest"
+attachment = false
+reasoning = true
+temperature = true
+
+[cost]
+input = 0.60
+output = 4.00
+inputCached = 0.15
+outputCached = 4.00
+
+[limit]
+context = 131_072
+output = 8_192

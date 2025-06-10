@@ -1,0 +1,14 @@
+name = "Grok 2 Latest"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 2.00
+output = 10.00
+inputCached = 2.00
+outputCached = 10.00
+
+[limit]
+context = 131_072
+output = 8_192
