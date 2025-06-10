@@ -1,14 +1,14 @@
-name = "Gemini 2.5 Pro"
+name = "Gemini 1.5 Flash"
 attachment = true
 reasoning = false
 temperature = true
 
 [cost]
-input = 1.25
-output = 10.00
-inputCached = 0.00
+input = 0.075
+output = 0.30
+inputCached = 0.01875
 outputCached = 0.00
 
 [limit]
 context = 1_000_000
-output = 50_000
+output = 8_192

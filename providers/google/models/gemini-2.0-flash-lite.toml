@@ -1,0 +1,14 @@
+name = "Gemini 2.0 Flash Lite"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.075
+output = 0.30
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 1_048_576
+output = 8_192

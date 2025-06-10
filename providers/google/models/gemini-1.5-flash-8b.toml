@@ -1,0 +1,14 @@
+name = "Gemini 1.5 Flash-8B"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.0375
+output = 0.15
+inputCached = 0.01
+outputCached = 0.00
+
+[limit]
+context = 1_000_000
+output = 8_192
