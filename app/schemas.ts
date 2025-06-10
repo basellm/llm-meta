@@ -13,6 +13,7 @@ export const ModelSchema = z
     name: z.string().min(1, "Model name cannot be empty"),
     attachment: z.boolean().default(false).optional(),
     reasoning: z.boolean().default(false).optional(),
+    temperature: z.boolean().default(false).optional(),
     cost: z.object({
       input: z.number().min(0, "Input price cannot be negative"),
       output: z.number().min(0, "Output price cannot be negative"),

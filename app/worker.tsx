@@ -84,6 +84,7 @@ app.get("/", async (c) => {
                 <th>Model ID</th>
                 <th>Attachment</th>
                 <th>Reasoning</th>
+                <th>Temperature</th>
                 <th>Input Cost</th>
                 <th>Output Cost</th>
                 <th>Input Cached Cost</th>
@@ -94,12 +95,12 @@ app.get("/", async (c) => {
             </thead>
             <tbody>
               {Object.entries(apiData)
-                .sort(([, providerA], [, providerB]) => 
+                .sort(([, providerA], [, providerB]) =>
                   providerA.name.localeCompare(providerB.name)
                 )
                 .flatMap(([providerId, provider]) =>
                   Object.entries(provider.models)
-                    .sort(([, modelA], [, modelB]) => 
+                    .sort(([, modelA], [, modelB]) =>
                       modelA.name.localeCompare(modelB.name)
                     )
                     .map(([modelId, model]) => (
@@ -110,6 +111,7 @@ app.get("/", async (c) => {
                         <td>{modelId}</td>
                         <td>{model.attachment ? "Yes" : "No"}</td>
                         <td>{model.reasoning ? "Yes" : "No"}</td>
+                        <td>{model.temperature ? "Yes" : "No"}</td>
                         <td>${model.cost.input}</td>
                         <td>${model.cost.output}</td>
                         <td>${model.cost.inputCached}</td>

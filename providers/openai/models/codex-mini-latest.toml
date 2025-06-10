@@ -1,6 +1,7 @@
 name = "Codex Mini"
 attachment = true
 reasoning = true
+temperature = false
 
 [cost]
 input = 1.50

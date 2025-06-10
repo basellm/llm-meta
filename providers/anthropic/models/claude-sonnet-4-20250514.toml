@@ -1,6 +1,7 @@
 name = "Claude 4 Sonnet"
 attachment = true
 reasoning = false
+temperature = true
 
 [cost]
 input = 3.00

@@ -1,6 +1,7 @@
 name = "Gemini 2.5 Pro"
 attachment = true
 reasoning = false
+temperature = true
 
 [cost]
 input = 1.25
