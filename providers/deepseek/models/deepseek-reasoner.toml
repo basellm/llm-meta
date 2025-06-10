@@ -1,0 +1,14 @@
+name = "DeepSeek Reasoner"
+attachment = true
+reasoning = true
+temperature = true
+
+[cost]
+input = 0.55
+output = 2.19
+inputCached = 0.14
+outputCached = 0.00
+
+[limit]
+context = 65_536
+output = 8_192
