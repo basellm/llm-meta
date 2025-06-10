@@ -1,0 +1,14 @@
+name = "Pixtral 12B"
+attachment = true
+reasoning = true
+temperature = true
+
+[cost]
+input = 0.15
+output = 0.15
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 128_000
+output = 4_096

@@ -1,0 +1,14 @@
+name = "Mistral Medium"
+attachment = false
+reasoning = true
+temperature = true
+
+[cost]
+input = 0.40
+output = 2.00
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 128_000
+output = 4_096

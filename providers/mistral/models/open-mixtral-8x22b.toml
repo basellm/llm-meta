@@ -1,0 +1,14 @@
+name = "Mixtral 8x22B"
+attachment = false
+reasoning = true
+temperature = true
+
+[cost]
+input = 2.00
+output = 6.00
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 65_000
+output = 4_096
