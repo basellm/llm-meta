@@ -85,10 +85,10 @@ app.get("/", async (c) => {
                 <th>Attachment</th>
                 <th>Reasoning</th>
                 <th>Temperature</th>
-                <th>Input Cost</th>
-                <th>Output Cost</th>
-                <th>Input Cached Cost</th>
-                <th>Output Cached Cost</th>
+                <th>Input Cost (per 1M)</th>
+                <th>Output Cost (per 1M)</th>
+                <th>Input Cached Cost (per 1M)</th>
+                <th>Output Cached Cost (per 1M)</th>
                 <th>Context Limit</th>
                 <th>Output Limit</th>
               </tr>
