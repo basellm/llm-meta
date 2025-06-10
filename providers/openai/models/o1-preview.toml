@@ -1,6 +1,7 @@
 name = "o1-preview"
 attachment = false
 reasoning = true
+temperature = true
 
 [cost]
 input = 15.00

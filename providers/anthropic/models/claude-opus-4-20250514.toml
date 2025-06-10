@@ -1,6 +1,7 @@
 name = "Claude 4 Opus"
 attachment = true
 reasoning = true
+temperature = true
 
 [cost]
 input = 15.00

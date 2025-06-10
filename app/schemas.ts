@@ -11,9 +11,9 @@ export const ProviderSchema = z
 export const ModelSchema = z
   .object({
     name: z.string().min(1, "Model name cannot be empty"),
-    attachment: z.boolean().default(false).optional(),
-    reasoning: z.boolean().default(false).optional(),
-    temperature: z.boolean().default(false).optional(),
+    attachment: z.boolean(),
+    reasoning: z.boolean(),
+    temperature: z.boolean(),
     cost: z.object({
       input: z.number().min(0, "Input price cannot be negative"),
       output: z.number().min(0, "Output price cannot be negative"),

@@ -1,6 +1,7 @@
 name = "GPT-4o Mini"
 attachment = true
 reasoning = false
+temperature = true
 
 [cost]
 input = 0.15

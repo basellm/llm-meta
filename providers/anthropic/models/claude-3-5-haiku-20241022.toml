@@ -1,6 +1,7 @@
 name = "Claude 3.5 Haiku"
 attachment = true
 reasoning = false
+temperature = true
 
 [cost]
 input = 0.80
