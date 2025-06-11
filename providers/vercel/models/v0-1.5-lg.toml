@@ -1,0 +1,14 @@
+name = "v0-1.5-lg"
+attachment = true
+reasoning = true
+temperature = true
+
+[cost]
+input = 15.00
+output = 75.00
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 512000
+output = 32000

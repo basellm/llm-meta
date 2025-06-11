@@ -1,0 +1,2 @@
+name = "Vercel"
+env = ["V0_API_KEY"]
