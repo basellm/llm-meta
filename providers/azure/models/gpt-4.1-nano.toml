@@ -1,0 +1,14 @@
+name = "GPT-4.1 Nano"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.10
+output = 0.40
+inputCached = 0.03
+outputCached = 0.00
+
+[limit]
+context = 1047576
+output = 32768

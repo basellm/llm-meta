@@ -1,14 +1,14 @@
-name = "GPT-4o Mini"
+name = "GPT-4 Turbo"
 attachment = true
 reasoning = false
 temperature = true
 
 [cost]
-input = 0.15
-output = 0.60
-inputCached = 0.08
+input = 10.00
+output = 30.00
+inputCached = 0.00
 outputCached = 0.00
 
 [limit]
 context = 128_000
-output = 16_384
+output = 4_096

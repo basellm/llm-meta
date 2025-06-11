@@ -1,4 +1,4 @@
-name = "o1-mini"
+name = "o3-mini"
 attachment = false
 reasoning = true
 temperature = false
@@ -10,5 +10,5 @@ inputCached = 0.55
 outputCached = 0.00
 
 [limit]
-context = 128_000
-output = 65_536
+context = 200_000
+output = 100_000

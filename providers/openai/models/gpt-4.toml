@@ -1,0 +1,14 @@
+name = "GPT-4 Turbo"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 10.00
+output = 30.00
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 8192
+output = 8192

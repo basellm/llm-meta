@@ -1,14 +1,14 @@
-name = "o1-mini"
+name = "o1-preview"
 attachment = false
 reasoning = true
 temperature = false
 
 [cost]
-input = 1.10
-output = 4.40
-inputCached = 0.55
+input = 16.50
+output = 66.00
+inputCached = 8.25
 outputCached = 0.00
 
 [limit]
 context = 128_000
-output = 65_536
+output = 32_768

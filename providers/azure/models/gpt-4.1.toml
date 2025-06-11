@@ -1,0 +1,14 @@
+name = "GPT-4.1"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 2.00
+output = 8.00
+inputCached = 0.50
+outputCached = 0.00
+
+[limit]
+context = 1_047_576
+output = 32_768

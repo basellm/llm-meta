@@ -1,12 +1,12 @@
-name = "GPT-4o Mini"
+name = "GPT-4.5 Preview"
 attachment = true
 reasoning = false
 temperature = true
 
 [cost]
-input = 0.15
-output = 0.60
-inputCached = 0.08
+input = 75.00
+output = 150.00
+inputCached = 37.50
 outputCached = 0.00
 
 [limit]

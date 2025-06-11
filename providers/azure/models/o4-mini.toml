@@ -1,14 +1,14 @@
-name = "o1-mini"
-attachment = false
+name = "o4-mini"
+attachment = true
 reasoning = true
 temperature = false
 
 [cost]
 input = 1.10
 output = 4.40
-inputCached = 0.55
+inputCached = 0.28
 outputCached = 0.00
 
 [limit]
-context = 128_000
-output = 65_536
+context = 200_000
+output = 100_000
