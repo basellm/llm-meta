@@ -1,0 +1,14 @@
+name = "Nova Premier"
+attachment = true
+reasoning = true
+temperature = true
+
+[cost]
+input = 2.50
+output = 12.50
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 1_000_000
+output = 16_384

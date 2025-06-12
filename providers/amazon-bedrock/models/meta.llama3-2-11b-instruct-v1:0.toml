@@ -1,0 +1,14 @@
+name = "Llama 3.2 11B Instruct"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.16
+output = 0.16
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 128_000
+output = 4_096

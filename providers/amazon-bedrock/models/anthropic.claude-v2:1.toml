@@ -1,0 +1,14 @@
+name = "Claude 2.1"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 8.00
+output = 24.00
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 200_000
+output = 4_096

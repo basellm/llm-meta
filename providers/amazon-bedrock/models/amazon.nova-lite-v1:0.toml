@@ -1,0 +1,14 @@
+name = "Nova Lite"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.06
+output = 0.24
+inputCached = 0.015
+outputCached = 0.00
+
+[limit]
+context = 300_000
+output = 8_192

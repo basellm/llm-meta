@@ -1,0 +1,14 @@
+name = "Claude Instant"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.80
+output = 2.40
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 100_000
+output = 4_096

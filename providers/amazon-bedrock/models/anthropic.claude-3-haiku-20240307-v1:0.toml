@@ -1,0 +1,14 @@
+name = "Claude 3 Haiku"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.25
+output = 1.25
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 200_000
+output = 4_096

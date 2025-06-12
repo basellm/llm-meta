@@ -1,0 +1,14 @@
+name = "Nova Micro"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.035
+output = 0.14
+inputCached = 0.00875
+outputCached = 0.00
+
+[limit]
+context = 128_000
+output = 8_192

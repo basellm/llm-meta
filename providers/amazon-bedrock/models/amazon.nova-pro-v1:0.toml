@@ -1,0 +1,14 @@
+name = "Nova Pro"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.80
+output = 3.20
+inputCached = 0.20
+outputCached = 0.00
+
+[limit]
+context = 300_000
+output = 8_192

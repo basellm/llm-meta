@@ -1,0 +1,14 @@
+name = "Command Light"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.30
+output = 0.60
+inputCached = 0.00
+outputCached = 0.00
+
+[limit]
+context = 4_096
+output = 4_096
