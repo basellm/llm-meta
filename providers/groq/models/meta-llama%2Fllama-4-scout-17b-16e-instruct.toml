@@ -1,0 +1,14 @@
+name = "Llama 4 Scout 17B"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.11
+output = 0.34
+inputCached = 0.0
+outputCached = 0.0
+
+[limit]
+context = 131_072
+output = 8_192

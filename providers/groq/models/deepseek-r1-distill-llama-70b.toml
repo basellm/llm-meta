@@ -1,0 +1,14 @@
+name = "DeepSeek R1 Distill Llama 70B"
+attachment = false
+reasoning = true
+temperature = true
+
+[cost]
+input = 0.75
+output = 0.99
+inputCached = 0.0
+outputCached = 0.0
+
+[limit]
+context = 131_072
+output = 8_192

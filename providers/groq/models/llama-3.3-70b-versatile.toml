@@ -1,0 +1,14 @@
+name = "Llama 3.3 70B Versatile"
+attachment = false
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.59
+output = 0.79
+inputCached = 0.0
+outputCached = 0.0
+
+[limit]
+context = 131_072
+output = 32_768

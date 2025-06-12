@@ -1,0 +1,14 @@
+name = "Qwen QwQ 32B"
+attachment = false
+reasoning = true
+temperature = true
+
+[cost]
+input = 0.29
+output = 0.39
+inputCached = 0.0
+outputCached = 0.0
+
+[limit]
+context = 131_072
+output = 16_384
