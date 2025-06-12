@@ -27,6 +27,9 @@ app.get("/", async (c) => {
       <html>
         <head>
           <title>API Data</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -53,6 +56,9 @@ app.get("/", async (c) => {
           <style
             dangerouslySetInnerHTML={{
               __html: `
+              body {
+                font-family: 'Rubik', sans-serif;
+              }
               .search-container {
                 margin-bottom: 20px;
               }
@@ -60,6 +66,10 @@ app.get("/", async (c) => {
                 padding: 8px;
                 width: 300px;
                 font-size: 16px;
+                font-family: 'Rubik', sans-serif;
+              }
+              table {
+                font-family: 'Rubik', sans-serif;
               }
             `,
             }}
@@ -75,7 +85,7 @@ app.get("/", async (c) => {
               onkeyup="filterTable()"
             />
           </div>
-          <table border="1" cellpadding="5" cellspacing="0">
+          <table border={1} cellPadding={5} cellSpacing={0}>
             <thead>
               <tr>
                 <th>Provider</th>
