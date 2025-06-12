@@ -43,7 +43,7 @@ async function build() {
         const modelContent = parse(await modelTomlFile.text());
 
         // Use filename without extension as the model ID
-        const modelId = modelFile.replace(/\.toml$/, "");
+        const modelId = modelFile.replace(/\.toml$/, "").replace(/%2F/g, "/");
         result[provider].models[modelId] = {
           ...modelContent,
           id: modelId,
