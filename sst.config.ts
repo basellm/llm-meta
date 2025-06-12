@@ -8,13 +8,17 @@ export default $config({
     };
   },
   async run() {
-    new sst.cloudflare.Worker("MyWorker", {
-      domain: "models.dev",
+    const worker = new sst.cloudflare.Worker("MyWorker", {
+      domain: $app.stage === "dev" ? "models.dev" : undefined,
       handler: "app/worker.tsx",
       url: true,
       assets: {
         directory: "./dist",
       },
     });
+
+    return {
+      url: worker.url,
+    };
   },
 });
