@@ -209,14 +209,11 @@ app.get("/", async (c) => {
     th, td {
       padding: 0.75rem;
       text-align: left;
-      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
       white-space: nowrap;
     }
 
     tbody {
-      tr:first-child td {
-        border-top: 0;
-      }
       td {
         color: var(--color-text-tertiary);
       }
