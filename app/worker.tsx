@@ -26,7 +26,7 @@ app.get("/", async (c) => {
     return c.html(
       <html>
         <head>
-          <title>Models.dev — An open-source database of LLMs</title>
+          <title>Models.dev &mdash; An open-source database of AI models</title>
           <meta name="description" content="Models.dev is a comprehensive open-source database of AI model specifications, pricing, and features." />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
