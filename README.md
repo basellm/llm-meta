@@ -1,6 +1,20 @@
-# Models.dev
+<p align="center">
+  <a href="https://models.dev">
+    <picture>
+      <source srcset="dist/logo-dark.svg" media="(prefers-color-scheme: dark)">
+      <source srcset="dist/logo-light.svg" media="(prefers-color-scheme: light)">
+      <img src="dist/logo-light.svg" alt="Models.dev logo">
+    </picture>
+  </a>
+</p>
+<p align="center">
+  <a href="https://sst.dev/discord"><img alt="Discord" src="https://img.shields.io/discord/983865673656705025?style=flat-square&label=Discord" /></a>
+  <a href="https://github.com/sst/models.dev/actions/workflows/deploy.yml"><img alt="Deploy status" src="https://img.shields.io/github/actions/workflow/status/sst/models.dev/deploy.yml?style=flat-square&branch=master" /></a>
+</p>
 
-A comprehensive database of AI model specifications, pricing, and capabilities.
+---
+
+[Models.dev](https://models.dev) is a comprehensive open-source database of AI model specifications, pricing, and capabilities.
 
 ## Contributing
 
