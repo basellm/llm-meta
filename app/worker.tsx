@@ -27,232 +27,22 @@ app.get("/", async (c) => {
       <html>
         <head>
           <title>Models.dev — An open-source database of LLMs</title>
+          <meta name="description" content="Models.dev is a comprehensive open-source database of AI model specifications, pricing, and features." />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Rubik:wght@300..900&display=swap" rel="stylesheet" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              function filterTable() {
-                const searchInput = document.getElementById('searchInput').value.toLowerCase();
-                const rows = document.querySelectorAll('table tbody tr');
-                
-                rows.forEach(row => {
-                  const provider = row.cells[0].textContent.toLowerCase();
-                  const providerId = row.cells[1].textContent.toLowerCase();
-                  const model = row.cells[2].textContent.toLowerCase();
-                  const modelId = row.cells[3].textContent.toLowerCase();
-                  
-                  if (provider.includes(searchInput) || model.includes(searchInput) || providerId.includes(searchInput) || modelId.includes(searchInput)) {
-                    row.style.display = '';
-                  } else {
-                    row.style.display = 'none';
-                  }
-                });
-              }
-            `,
-            }}
-          />
-          <style dangerouslySetInnerHTML={{
-            __html: `
-    /* CSS Reset/Normalize */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --header-height: 56px;
-      --font-mono: 'IBM Plex Mono', monospace;
-    }
-
-    :root {
-      --color-brand: #FD9527;
-      --color-background: #FFF;
-      --color-border: #DDD;
-      --color-header-background: rgba(255, 255, 255, 0.75);
-
-      --color-text: #333;
-      --color-text-secondary: #666;
-      --color-text-tertiary: #999;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-brand: #FD9527;
-        --color-background: #1E1E1E;
-        --color-border: #333;
-        --color-header-background: rgba(30, 30, 30, 0.75);
-
-        --color-text: #FFF;
-        --color-text-secondary: #AAA;
-        --color-text-tertiary: #666;
-      }
-    }
-
-    html, body {
-      font-family: 'Rubik', sans-serif;
-      line-height: 1.6;
-      color: var(--color-text);
-      background-color: var(--color-background);
-    }
-
-    input, button {
-      font-family: inherit;
-    }
-
-    header {
-      top: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: var(--header-height);
-      padding: 0 0.75rem;
-      background-color: var(--color-background);
-      position: fixed;
-      width: 100%;
-
-      & > div {
-        display: flex;
-        align-items: center;
-
-        &.left {
-          position: relative;
-          align-items: baseline;
-        }
-        &.right {
-          gap: 0.75rem;
-        }
-      }
-
-      h1 {
-        font-size: 1rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: -0.5px;
-      }
-      p {
-        font-size: 0.875rem;
-        color: var(--color-text-tertiary);
-      }
-      .slash {
-        margin-left: 0.625rem;
-        margin-right: 0.25rem;
-        display: block;
-        position: relative;
-        top: 1px;
-        width: 0;
-        line-height: 1;
-        height: 0.75rem;
-        border-right: 2px solid var(--color-border);
-        transform: translateX(-50%) rotate(20deg);
-        transform-origin: top center;
-      }
-      a.github {
-        color: var(--color-text-secondary);
-        svg {
-          opacity: 0.85;
-        }
-      }
-      input {
-        font-size: 0.8125rem;
-        line-height: 1.1;
-        padding: 0.5rem 0.625rem;
-        border-radius: 0.25rem;
-        border: 1px solid var(--color-border);
-        background: none;
-
-        &:focus {
-          border-color: var(--color-brand);
-          outline: none;
-        }
-      }
-    }
-
-    table {
-      border-collapse: separate;
-      border-spacing: 0;
-      font-size: 0.875rem;
-      width: 100%;
-      margin-top: var(--header-height);
-    }
-
-    thead, tbody {
-    }
-
-    table thead th {
-      position: sticky;
-      top: var(--header-height);
-      border-top: 1px solid var(--color-border);
-      border-bottom: 1px solid var(--color-border);
-      font-size: 0.75rem;
-      padding: 0.75rem 0.75rem calc(0.75rem - 2px);
-      line-height: 1;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--color-text-secondary);
-      backdrop-filter: blur(6px);
-      background-color: var(--color-header-background);
-    }
-
-    table thead th[data-desc]::after {
-      color: var(--color-text-tertiary);
-      margin-top: 0.5em;
-      content: attr(data-desc);
-      display: block;
-      font-size: 0.625rem;
-      font-weight: normal;
-    }
-
-    th, td {
-      padding: 0.75rem;
-      text-align: left;
-      border-bottom: 1px solid var(--color-border);
-      white-space: nowrap;
-    }
-
-    tbody {
-      td {
-        color: var(--color-text-tertiary);
-      }
-      td:nth-child(1) {
-        font-weight: 500;
-      }
-      td:nth-child(1), td:nth-child(2) {
-        color: var(--color-text);
-      }
-      td:nth-child(5) {
-      }
-      td:nth-child(5),
-      td:nth-child(6),
-      td:nth-child(7) {
-        font-size: 0.8125rem;
-        font-family: var(--font-mono);
-        text-transform: uppercase;
-      }
-      td:nth-child(3),
-      td:nth-child(4),
-      td:nth-child(8),
-      td:nth-child(9),
-      td:nth-child(10),
-      td:nth-child(11),
-      td:nth-child(12),
-      td:nth-child(13) {
-        font-size: 0.8125rem;
-        font-family: var(--font-mono);
-      }
-    }
-`
-          }} />
+          <script src="/index.js"></script>
+          <link rel="stylesheet" href="/index.css" />
+          <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+          <meta property="og:image" content="https://models.dev/social-share.png" />
         </head>
         <body>
           <header>
             <div class="left">
               <h1>Models.dev</h1>
               <span class="slash"></span>
-              <p>An open-source database of LLMs</p>
+              <p>An open-source database of AI models</p>
             </div>
             <div class="right">
               <a class="github" target="_blank" rel="noopener noreferrer" href="https://github.com/sst/models.dev">
@@ -261,6 +51,7 @@ app.get("/", async (c) => {
                 </svg>
               </a>
               <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Filter by provider or model..." />
+              <button id="btnHowToUse">How to use</button>
             </div>
           </header>
           <table>
@@ -311,8 +102,44 @@ app.get("/", async (c) => {
                 )}
             </tbody>
           </table>
+          <dialog id="howToUse">
+            <div class="header">
+              <h2>How to use</h2>
+              <button id="btnClose">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                  <line x1="6" y1="6" x2="18" y2="18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="body">
+              <p><a href="/">Models.dev</a> is a comprehensive open-source database of AI model specifications, pricing, and features.</p>
+              <p>There&apos;s no single database with information about all the available AI models. We started Models.dev as a community-contributed project to address this. We also use it internally in <a href="https://opencode.ai" target="_blank" rel="noopener noreferrer">opencode</a>.</p>
+              <h2>API</h2>
+              <p>You can access this data through an API.</p>
+              <div class="code-block">
+                <code>curl <a href="/api.json">https://models.dev/api.json</a></code>
+              </div>
+              <p>Use the <b>Model ID</b> field to do a lookup on any model; it&apos;s the identifier used by <a href="https://ai-sdk.dev/" target="_blank" rel="noopener noreferrer">AI SDK</a>.</p>
+              <h2>Contribute</h2>
+              <p>The data is stored in the <a href="https://github.com/sst/models.dev" target="_blank" rel="noopener noreferrer">GitHub repo</a> as TOML files; organized by provider and model. This is used to generate this page and power the API.</p>
+              <p>We need your help keeping this up to date. Feel free to edit the data and submit a pull request. Refer to the <a href="https://github.com/sst/models.dev/blob/dev/README.md">README</a> for more information.</p>
+            </div>
+            <div class="footer">
+              <a href="https://github.com/sst/models.dev" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+              <a href="https://sst.dev" target="_blank" rel="noopener noreferrer">Created by SST</a>
+            </div>
+          </dialog>
         </body>
-      </html>
+      </html >
     );
   } catch (err) {
     const error = err instanceof Error ? err : new Error(String(err));
@@ -343,121 +170,3 @@ app.all("*", (c) => {
 export default {
   fetch: app.fetch,
 };
-
-//               /* Header Styles */
-//               .page-header {
-//                 position: fixed;
-//                 top: 0;
-//                 left: 0;
-//                 right: 0;
-//                 background-color: #fff;
-//                 border-bottom: 2px solid #e0e0e0;
-//                 padding: 16px 20px;
-//                 display: flex;
-//                 justify-content: space-between;
-//                 align-items: center;
-//                 z-index: 100;
-// display: none;
-//               }
-//               .page-header h1 {
-//                 font-size: 24px;
-//                 font-weight: 600;
-//                 color: #333;
-//               }
-//               .search-container {
-//                 display: flex;
-//                 align-items: center;
-//               }
-//               #searchInput {
-//                 padding: 10px 16px;
-//                 width: 300px;
-//                 font-size: 16px;
-//                 border: 2px solid #e0e0e0;
-//                 border-radius: 8px;
-//                 outline: none;
-//                 transition: border-color 0.2s ease;
-//               }
-//               #searchInput:focus {
-//                 border-color: #007bff;
-//               }
-//               /* Table Styles */
-//               .table-container {
-//                 /**overflow-x: auto;
-//                 width: 100%;**/
-//               }
-//               table {
-//                 width: 100%;
-//                 font-family: 'Rubik', sans-serif;
-//                 font-size: 14px;
-//                 border-collapse: collapse;
-//                 min-width: 800px;
-//               }
-//               thead th {
-//                 position: sticky;
-//                 /** top: 72px; **/
-//                 background-color: #f8f9fa;
-//                 z-index: 50;
-//               }
-//               th {
-//                 background-color: #f8f9fa;
-//                 padding: 12px 8px;
-//                 text-align: left;
-//                 font-weight: 600;
-//                 border-bottom: 2px solid #dee2e6;
-//                 white-space: nowrap;
-//               }
-//               td {
-//                 padding: 10px 8px;
-//                 border-bottom: 1px solid #dee2e6;
-//                 white-space: nowrap;
-//               }
-//               tbody tr:hover {
-//                 background-color: #f8f9fa;
-//               }
-//               /* Responsive Design */
-//               @media (max-width: 768px) {
-//                 .page-header {
-//                   flex-direction: column;
-//                   gap: 12px;
-//                   padding: 12px 16px;
-//                 }
-//                 .page-header h1 {
-//                   font-size: 20px;
-//                 }
-//                 #searchInput {
-//                   width: 100%;
-//                   max-width: 300px;
-//                 }
-//                 .table-container {
-//                   margin-top: 96px;
-//                 }
-//                 table {
-//                   min-width: unset;
-//                 }
-//                 thead {
-//                   top: 96px;
-//                 }
-//                 th, td {
-//                   padding: 8px 6px;
-//                   font-size: 12px;
-//                 }
-//               }
-//               @media (max-width: 480px) {
-//                 .page-header {
-//                   padding: 10px 12px;
-//                 }
-//                 .table-container {
-//                   margin-top: 76px;
-//                 }
-//                 .page-header h1 {
-//                   font-size: 18px;
-//                 }
-//                 #searchInput {
-//                   font-size: 14px;
-//                   padding: 8px 12px;
-//                 }
-//                 th, td {
-//                   padding: 6px 4px;
-//                   font-size: 11px;
-//                 }
-//               }

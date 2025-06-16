@@ -1,6 +1,7 @@
 <html>
 <head>
-    <title>Models.dev — An open-source database of LLMs</title>
+    <title>Models.dev &mdash; An open-source database of AI models</title>
+    <meta name="description" content="Models.dev is a comprehensive open-source database of AI model specifications, pricing, and features."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
@@ -31,26 +32,22 @@
       let scrollY;
 
       openBtn.addEventListener('click', () => {
-        // 1. Freeze page scroll
         scrollY = window.scrollY;
         document.body.style.position = 'fixed';
-        document.body.style.top      = `-${scrollY}px`;
-        // 2. Show the dialog
+        document.body.style.top      = "-"+scrollY+"px";
         dialog.showModal();
       });
 
       function closeDialog() {
         dialog.close();
-        // 3. Unfreeze page scroll
         document.body.style.position = '';
         document.body.style.top      = '';
         window.scrollTo(0, scrollY);
       }
 
       closeBtn.addEventListener('click', closeDialog);
-      dialog.addEventListener('cancel', closeDialog);  // handle Esc key
+      dialog.addEventListener('cancel', closeDialog);
       dialog.addEventListener('click', e => {
-        // close if clicking on the backdrop
         if (e.target === dialog) closeDialog();
       });
     });
@@ -73,6 +70,7 @@
       --color-brand: #FD9527;
       --color-background: #FFF;
       --color-border: #DDD;
+      --color-surface: #EEE;
       --color-alpha-background: rgba(255, 255, 255, 0.75);
 
       --color-text: #333;
@@ -85,6 +83,7 @@
         --color-brand: #FD9527;
         --color-background: #1E1E1E;
         --color-border: #333;
+        --color-surface: #111;
         --color-alpha-background: rgba(30, 30, 30, 0.75);
 
         --color-text: #FFF;
@@ -103,14 +102,24 @@
     body:has(dialog[open]) {
       overscroll-behavior: none;
     }
-
     input, button {
       font-family: inherit;
+    }
+    a {
+      color: var(--color-text);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: var(--color-text-tertiary);
+      text-underline-offset: 0.1875rem;
+      &:hover {
+        color: var(--color-text);
+      }
     }
 
     header {
       top: 0;
       display: flex;
+      gap: 0.5rem;
       justify-content: space-between;
       align-items: center;
       height: var(--header-height);
@@ -124,10 +133,13 @@
         align-items: center;
 
         &.left {
+          flex: 1 1 auto;
+          min-width: 0;
           position: relative;
           align-items: baseline;
         }
         &.right {
+          flex: 0 0 auto;
           gap: 0.75rem;
         }
       }
@@ -140,6 +152,9 @@
       }
       p {
         font-size: 0.875rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         color: var(--color-text-tertiary);
       }
       .slash {
@@ -188,6 +203,21 @@
         height: 2rem;
         padding: 0.5rem 0.75rem;
         border-radius: 0.25rem;
+      }
+
+      @media (max-width: 32rem) {
+        div.left {
+          p, span.slash {
+            display: none;
+          }
+        }
+      }
+      @media (max-width: 45rem) {
+        div.right {
+          .github, input {
+            display: none;
+          }
+        }
       }
     }
 
@@ -276,9 +306,9 @@
       color: var(--color-text);
       border: none;
       border-radius: 0.5rem;
-      width: 85vw;
+      width: calc(100vw - 2rem);
       max-width: 40rem;
-      max-height: 85vh;
+      max-height: calc(100svh - 2rem);
       box-shadow:
         0 2px 4px rgba(0, 0, 0, .05),
         0 4px 8px rgba(0, 0, 0, .05),
@@ -287,11 +317,12 @@
         0 32px 64px rgba(0, 0, 0, .07),
         0 48px 96px rgba(0, 0, 0, .07);
 
-      display: flex;
       flex-direction: column;
-      position: relative;
-
       overflow: hidden;
+
+      &[open] {
+        display: flex;
+      }
 
       .header {
         display: flex;
@@ -330,6 +361,36 @@
         overflow-y: auto;
         flex: 1 1 auto;
         overscroll-behavior: contain;
+        font-size: 0.875rem;
+
+        h2, p, .code-block {
+          margin-bottom: 0.625rem;
+
+          &:has(+ h2) {
+            margin-bottom: 1.5rem;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        h2 {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+        p {
+          b {
+            font-weight: 500;
+          }
+        }
+        .code-block {
+          padding: 0.875rem 1rem;
+          border-radius: 0.25rem;
+          background-color: var(--color-surface);
+        }
+        code {
+          font-size: 0.8125rem;
+          font-family: var(--font-mono);
+        }
       }
 
       .footer {
@@ -360,7 +421,7 @@
         <div class="left">
             <h1>Models.dev</h1>
             <span class="slash"></span>
-            <p>An open-source database of LLMs</p>
+            <p>An open-source database of AI models</p>
         </div>
         <div class="right">
             <a class="github" target="_blank" rel="noopener noreferrer" href="https://github.com/sst/models.dev">
@@ -2482,27 +2543,21 @@
         </button>
       </div>
       <div class="body">
-        <p>Models.dev is a database of LLMs that can be used to generate text, images, and other media. It is a community-driven project that aims to provide a comprehensive and accessible resource for developers and researchers.</p>
-        <p>To use Models.dev, you can:</p>
-            <p>Browse the models and providers psted on the website.</p>
-            <p>Search for specific models or providers using the search bar.</p>
-            <p>Filter the models and providers by category, provider, or model.</p>
-            <p>View the code and documentation for each model.</p>
-            <p>Use the API to generate text, images, or other media.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Models.dev is an open-source project that welcomes contributions from the community. If you have any questions or suggestions, please feel free to reach out to the project's maintainers or create an issue on the GitHub repository.</p>
-        <p>Thank you for using Models.dev!</p>
+        <p><a href="/">Models.dev</a> is a comprehensive open-source database of AI model specifications, pricing, and features.</p>
+        <p>There&apos;s no single database with information about all the available AI models. We started Models.dev as a community-contributed project to address this. We also use it internally in <a href="https://opencode.ai" target="_blank" rel="noopener noreferrer">opencode</a>.</p>
+        <h2>API</h2>
+        <p>You can access this data through an API.</p>
+        <div class="code-block">
+          <code>curl <a href="/api.json">https://models.dev/api.json</a></code>
+        </div>
+        <p>Use the <b>Model ID</b> field to do a lookup on any model; it&apos;s the identifier used by <a href="https://ai-sdk.dev/" target="_blank" rel="noopener noreferrer">AI SDK</a>.</p>
+        <h2>Contribute</h2>
+        <p>The data is stored in the <a href="https://github.com/sst/models.dev" target="_blank" rel="noopener noreferrer">GitHub repo</a> as TOML files; organized by provider and model. This is used to generate this page and power the API.</p>
+        <p>We need your help keeping this up to date. Feel free to edit the data and submit a pull request. Refer to the <a href="https://github.com/sst/models.dev/blob/dev/README.md">README</a> for more information.</p>
       </div>
       <div class="footer">
         <a href="https://github.com/sst/models.dev" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
         <a href="https://sst.dev" target="_blank" rel="noopener noreferrer">Created by SST</a>
-      </div>
       </div>
     </dialog>
 </body>
