@@ -107,8 +107,8 @@ app.get("/", async (c) => {
                 <th>Temperature</th>
                 <th data-desc="per 1M tokens">Input Cost</th>
                 <th data-desc="per 1M tokens">Output Cost</th>
-                <th data-desc="per 1M tokens">Input Cached Cost</th>
-                <th data-desc="per 1M tokens">Output Cached Cost</th>
+                <th data-desc="per 1M tokens">Cache Read Cost</th>
+                <th data-desc="per 1M tokens">Cache Write Cost</th>
                 <th>Context Limit</th>
                 <th>Output Limit</th>
               </tr>
@@ -134,8 +134,8 @@ app.get("/", async (c) => {
                         <td>{model.temperature ? "Yes" : "No"}</td>
                         <td>${model.cost.input}</td>
                         <td>${model.cost.output}</td>
-                        <td>${model.cost.inputCached}</td>
-                        <td>${model.cost.outputCached}</td>
+                        <td>{model.cost.cache_read ? `$${model.cost.cache_read}` : "-"}</td>
+                        <td>{model.cost.cache_write ? `$${model.cost.cache_write}` : "-"}</td>
                         <td>{model.limit.context}</td>
                         <td>{model.limit.output}</td>
                       </tr>
