@@ -1,7 +1,9 @@
 #!/usr/bin/env bun
 
-import { Rendered } from "../src/render";
+import { Rendered, Providers } from "../src/render";
+import fs from "fs/promises";
 
+await fs.rm("./dist", { recursive: true, force: true });
 await Bun.build({
   entrypoints: ["./index.html"],
   outdir: "dist",
@@ -15,3 +17,4 @@ for await (const file of new Bun.Glob("./public/*").scan()) {
 let html = await Bun.file("./dist/index.html").text();
 html = html.replace("<!--static-->", Rendered);
 await Bun.write("./dist/index.html", html);
+await Bun.write("./dist/api.json", JSON.stringify(Providers));

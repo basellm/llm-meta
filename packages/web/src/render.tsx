@@ -6,7 +6,7 @@ import { Fragment } from "hono/jsx"
 import { renderToString } from "hono/jsx/dom/server"
 import path from "path"
 
-const apiData = await generate(
+export const Providers = await generate(
   path.join(import.meta.dir, "..", "..", "..", "providers")
 )
 
@@ -65,7 +65,7 @@ export const Rendered = renderToString(
         </tr>
       </thead>
       <tbody>
-        {Object.entries(apiData)
+        {Object.entries(Providers)
           .sort(([, providerA], [, providerB]) =>
             providerA.name.localeCompare(providerB.name)
           )
