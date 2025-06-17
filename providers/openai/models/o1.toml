@@ -6,8 +6,7 @@ temperature = false
 [cost]
 input = 15.00
 output = 60.00
-inputCached = 7.50
-outputCached = 0.00
+cache_read = 7.50
 
 [limit]
 context = 200_000

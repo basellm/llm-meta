@@ -19,8 +19,8 @@ export const ModelSchema = z
     cost: z.object({
       input: z.number().min(0, "Input price cannot be negative"),
       output: z.number().min(0, "Output price cannot be negative"),
-      inputCached: z.number().min(0, "Input cached price cannot be negative"),
-      outputCached: z.number().min(0, "Output cached price cannot be negative"),
+      cache_read: z.number().min(0, "Cache read price cannot be negative").optional(),
+      cache_write: z.number().min(0, "Cache write price cannot be negative").optional(),
     }),
     limit: z.object({
       context: z.number().min(0, "Context window must be positive"),

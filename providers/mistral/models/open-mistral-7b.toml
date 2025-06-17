@@ -6,8 +6,6 @@ temperature = true
 [cost]
 input = 0.25
 output = 0.25
-inputCached = 0.00
-outputCached = 0.00
 
 [limit]
 context = 8_000
