@@ -1,0 +1,14 @@
+name = "Llama-4-Maverick-17B-128E-Instruct-FP8"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.00
+output = 0.00
+inputCached = 0.0
+outputCached = 0.00
+
+[limit]
+context = 128_000
+output = 4_096
