@@ -1,2 +1,3 @@
 name = "Anthropic"
 env = ["ANTHROPIC_API_KEY"]
+npm = "@ai-sdk/anthropic"
