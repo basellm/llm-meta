@@ -1,3 +1,5 @@
 name = "Morph"
 env = ["MORPH_API_KEY"]
-doc = "https://docs.morph.so/models" 
+npm = "@ai-sdk/openai-compatible"
+api = "https://api.morphllm.com/v1"
+doc = "https://docs.morphllm.com/api-reference/introduction" 
