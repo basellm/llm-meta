@@ -131,3 +131,10 @@ document.addEventListener("keydown", (e) => {
     search.focus();
   }
 });
+
+search.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    search.value = "";
+    search.dispatchEvent(new Event("input"));
+  }
+});

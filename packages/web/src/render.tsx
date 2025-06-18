@@ -40,7 +40,7 @@ export const Rendered = renderToString(
         <div class="search-container">
           <input type="text" id="search" placeholder="Filter by model" />
           <span class="search-shortcut">⌘K</span>
-        </div 
+        </div>
         <button id="help">How to use</button>
       </div>
     </header>
