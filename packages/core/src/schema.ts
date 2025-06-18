@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const Model = z
   .object({
-    id: z.string(),
+    id: z.string().toLowerCase(),
     name: z.string().min(1, "Model name cannot be empty"),
     attachment: z.boolean(),
     reasoning: z.boolean(),
@@ -30,7 +30,7 @@ export type Model = z.infer<typeof Model>;
 
 export const Provider = z
   .object({
-    id: z.string(),
+    id: z.string().toLowerCase(),
     env: z.array(z.string()).min(1, "Provider env cannot be empty"),
     npm: z.string().min(1, "Provider npm module cannot be empty").optional(),
     name: z.string().min(1, "Provider name cannot be empty"),

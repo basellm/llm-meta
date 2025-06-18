@@ -111,6 +111,18 @@ See existing providers in the `providers/` directory for reference:
 - `providers/openai/` - OpenAI GPT models
 - `providers/google/` - Google Gemini models
 
+### Working on frontend
+
+Make sure you have [Bun](https://bun.sh/) installed.
+
+```bash
+$ bun install
+$ cd packages/web
+$ bun run dev
+```
+
+And it'll open the frontend at http://localhost:3000
+
 ### Questions?
 
 Open an issue if you need help or have questions about contributing.
