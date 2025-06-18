@@ -146,6 +146,7 @@ header {
     height: 2rem;
     background: none;
     color: var(--color-text);
+    min-width: 12.5rem;
 
     &:focus {
       border-color: var(--color-brand);
