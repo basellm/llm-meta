@@ -1,4 +1,4 @@
-name = "Cerebras Llama 4 Maverick 17B 128E Instruct"
+name = "Cerebras-Llama-4-Maverick-17B-128E-Instruct"
 attachment = true
 reasoning = false
 temperature = true
