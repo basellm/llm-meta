@@ -3,18 +3,15 @@
 /* eslint-disable */
 /* deno-fmt-ignore-file */
 
-import "sst"
 declare module "sst" {
   export interface Resource {
+    "MyWorker": {
+      "type": "sst.cloudflare.StaticSite"
+      "url": string
+    }
   }
 }
-// cloudflare 
-import * as cloudflare from "@cloudflare/workers-types";
-declare module "sst" {
-  export interface Resource {
-    "MyWorker": cloudflare.Service
-  }
-}
+/// <reference path="sst-env.d.ts" />
 
 import "sst"
 export {}

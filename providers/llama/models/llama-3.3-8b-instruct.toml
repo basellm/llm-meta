@@ -1,0 +1,12 @@
+name = "Llama-3.3-8B-Instruct"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 0.00
+output = 0.00
+
+[limit]
+context = 128_000
+output = 4_096

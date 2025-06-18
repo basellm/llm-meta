@@ -8,12 +8,12 @@ export default $config({
     };
   },
   async run() {
-    const worker = new sst.cloudflare.Worker("MyWorker", {
+    const worker = new sst.cloudflare.StaticSite("MyWorker", {
       domain: $app.stage === "dev" ? "models.dev" : undefined,
-      handler: "app/worker.tsx",
-      url: true,
-      assets: {
-        directory: "./dist",
+      path: "./packages/web/",
+      build: {
+        output: "./dist",
+        command: "./script/build.ts",
       },
     });
 
