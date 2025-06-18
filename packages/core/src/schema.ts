@@ -35,6 +35,12 @@ export const Provider = z
     npm: z.string().min(1, "Provider npm module cannot be empty").optional(),
     api: z.string().optional(),
     name: z.string().min(1, "Provider name cannot be empty"),
+    doc: z
+      .string()
+      .min(
+        1,
+        "Please provide a link to the provider documentation where models are listed"
+      ),
     models: z.record(Model),
   })
   .strict()
