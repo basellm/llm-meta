@@ -1,15 +1,14 @@
 /** @jsx jsx */
 /** @jsxImportSource hono/jsx */
 
-import { generate } from "models.dev"
-import { Fragment } from "hono/jsx"
-import { renderToString } from "hono/jsx/dom/server"
-import path from "path"
+import { generate } from "models.dev";
+import { Fragment } from "hono/jsx";
+import { renderToString } from "hono/jsx/dom/server";
+import path from "path";
 
 export const Providers = await generate(
   path.join(import.meta.dir, "..", "..", "..", "providers")
-)
-
+);
 
 export const Rendered = renderToString(
   <Fragment>
@@ -49,19 +48,73 @@ export const Rendered = renderToString(
     <table>
       <thead>
         <tr>
-          <th>Provider</th>
-          <th>Model</th>
-          <th>Provider ID</th>
-          <th>Model ID</th>
-          <th>Attachment</th>
-          <th>Reasoning</th>
-          <th>Temperature</th>
-          <th data-desc="per 1M tokens">Input Cost</th>
-          <th data-desc="per 1M tokens">Output Cost</th>
-          <th data-desc="per 1M tokens">Cache Read Cost</th>
-          <th data-desc="per 1M tokens">Cache Write Cost</th>
-          <th>Context Limit</th>
-          <th>Output Limit</th>
+          <th class="sortable" data-column="provider" data-type="text">
+            Provider <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="model" data-type="text">
+            Model <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="providerId" data-type="text">
+            Provider ID <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="modelId" data-type="text">
+            Model ID <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="attachment" data-type="boolean">
+            Attachment <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="reasoning" data-type="boolean">
+            Reasoning <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="temperature" data-type="boolean">
+            Temperature <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="inputCost" data-type="number">
+            <div class="header-container">
+              <span class="header-text">
+                Input Cost
+                <br />
+                <span class="desc">per 1M tokens</span>
+              </span>
+              <span class="sort-indicator"></span>
+            </div>
+          </th>
+          <th class="sortable" data-column="outputCost" data-type="number">
+            <div class="header-container">
+              <span class="header-text">
+                Output Cost
+                <br />
+                <span class="desc">per 1M tokens</span>
+              </span>
+              <span class="sort-indicator"></span>
+            </div>
+          </th>
+          <th class="sortable" data-column="cacheReadCost" data-type="number">
+            <div class="header-container">
+              <span class="header-text">
+                Cache Read Cost
+                <br />
+                <span class="desc">per 1M tokens</span>
+              </span>
+              <span class="sort-indicator"></span>
+            </div>
+          </th>
+          <th class="sortable" data-column="cacheWriteCost" data-type="number">
+            <div class="header-container">
+              <span class="header-text">
+                Cache Write Cost
+                <br />
+                <span class="desc">per 1M tokens</span>
+              </span>
+              <span class="sort-indicator"></span>
+            </div>
+          </th>
+          <th class="sortable" data-column="contextLimit" data-type="number">
+            Context Limit <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="outputLimit" data-type="number">
+            Output Limit <span class="sort-indicator"></span>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -85,8 +138,14 @@ export const Rendered = renderToString(
                   <td>{model.temperature ? "Yes" : "No"}</td>
                   <td>${model.cost.input}</td>
                   <td>${model.cost.output}</td>
-                  <td>{model.cost.cache_read ? `$${model.cost.cache_read}` : "-"}</td>
-                  <td>{model.cost.cache_write ? `$${model.cost.cache_write}` : "-"}</td>
+                  <td>
+                    {model.cost.cache_read ? `$${model.cost.cache_read}` : "-"}
+                  </td>
+                  <td>
+                    {model.cost.cache_write
+                      ? `$${model.cost.cache_write}`
+                      : "-"}
+                  </td>
                   <td>{model.limit.context}</td>
                   <td>{model.limit.output}</td>
                 </tr>
@@ -122,14 +181,13 @@ export const Rendered = renderToString(
       </div>
       <div class="body">
         <p>
-          <a href="/">Models.dev</a> is a comprehensive open-source
-          database of AI model specifications, pricing, and features.
+          <a href="/">Models.dev</a> is a comprehensive open-source database of
+          AI model specifications, pricing, and features.
         </p>
         <p>
           There&apos;s no single database with information about all the
-          available AI models. We started Models.dev as a
-          community-contributed project to address this. We also use it
-          internally in{" "}
+          available AI models. We started Models.dev as a community-contributed
+          project to address this. We also use it internally in{" "}
           <a
             href="https://opencode.ai"
             target="_blank"
@@ -147,8 +205,8 @@ export const Rendered = renderToString(
           </code>
         </div>
         <p>
-          Use the <b>Model ID</b> field to do a lookup on any model;
-          it&apos;s the identifier used by{" "}
+          Use the <b>Model ID</b> field to do a lookup on any model; it&apos;s
+          the identifier used by{" "}
           <a
             href="https://ai-sdk.dev/"
             target="_blank"
@@ -172,8 +230,8 @@ export const Rendered = renderToString(
           generate this page and power the API.
         </p>
         <p>
-          We need your help keeping this up to date. Feel free to edit the
-          data and submit a pull request. Refer to the{" "}
+          We need your help keeping this up to date. Feel free to edit the data
+          and submit a pull request. Refer to the{" "}
           <a href="https://github.com/sst/models.dev/blob/dev/README.md">
             README
           </a>{" "}
@@ -188,15 +246,10 @@ export const Rendered = renderToString(
         >
           Edit on GitHub
         </a>
-        <a
-          href="https://sst.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://sst.dev" target="_blank" rel="noopener noreferrer">
           Created by SST
         </a>
       </div>
     </dialog>
   </Fragment>
-)
-
+);

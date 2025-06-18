@@ -215,13 +215,21 @@ table thead th {
   background-color: var(--color-alpha-background);
 }
 
-table thead th[data-desc]::after {
+table thead th .header-container {
+  display: flex;
+  align-items: center;
+}
+
+table thead th .desc {
   color: var(--color-text-tertiary);
   margin-top: 0.5em;
-  content: attr(data-desc);
   display: block;
   font-size: 0.625rem;
   font-weight: normal;
+}
+
+table thead th .sort-indicator {
+  margin-left: 0.25rem;
 }
 
 th,
