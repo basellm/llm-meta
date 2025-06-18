@@ -124,3 +124,10 @@ document.querySelectorAll("th.sortable").forEach((header) => {
     sortTable(column, type);
   });
 });
+
+document.addEventListener("keydown", (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+    e.preventDefault();
+    search.focus();
+  }
+});

@@ -37,11 +37,10 @@ export const Rendered = renderToString(
             ></path>
           </svg>
         </a>
-        <input
-          type="text"
-          id="search"
-          placeholder="Filter by provider or model..."
-        />
+        <div class="search-container">
+          <input type="text" id="search" placeholder="Filter by model" />
+          <span class="search-shortcut">⌘K</span>
+        </div 
         <button id="help">How to use</button>
       </div>
     </header>
