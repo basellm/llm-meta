@@ -3,23 +3,9 @@ const modalClose = document.getElementById("close")!;
 const help = document.getElementById("help")!;
 const search = document.getElementById("search")! as HTMLInputElement;
 
-let currentSort = { column: "", direction: "asc" };
-
-search.addEventListener("input", () => {
-  const value = search.value.toLowerCase();
-  const rows = document.querySelectorAll(
-    "table tbody tr"
-  ) as NodeListOf<HTMLTableRowElement>;
-
-  rows.forEach((row) => {
-    const cellTexts = Array.from(row.cells).map((cell) =>
-      cell.textContent!.toLowerCase()
-    );
-    const isVisible = cellTexts.some((text) => text.includes(value));
-    row.style.display = isVisible ? "" : "none";
-  });
-});
-
+/////////////////////////
+// Handle "How to use"
+/////////////////////////
 let y = 0;
 
 help.addEventListener("click", () => {
@@ -41,6 +27,11 @@ modal.addEventListener("cancel", closeDialog);
 modal.addEventListener("click", (e) => {
   if (e.target === modal) closeDialog();
 });
+
+////////////////////
+// Handle Sorting
+////////////////////
+let currentSort = { column: "", direction: "asc" };
 
 function sortTable(column: string, type: string) {
   const tbody = document.querySelector("table tbody")!;
@@ -125,6 +116,24 @@ document.querySelectorAll("th.sortable").forEach((header) => {
   });
 });
 
+///////////////////
+// Handle Search
+///////////////////
+search.addEventListener("input", () => {
+  const value = search.value.toLowerCase();
+  const rows = document.querySelectorAll(
+    "table tbody tr"
+  ) as NodeListOf<HTMLTableRowElement>;
+
+  rows.forEach((row) => {
+    const cellTexts = Array.from(row.cells).map((cell) =>
+      cell.textContent!.toLowerCase()
+    );
+    const isVisible = cellTexts.some((text) => text.includes(value));
+    row.style.display = isVisible ? "" : "none";
+  });
+});
+
 document.addEventListener("keydown", (e) => {
   if ((e.metaKey || e.ctrlKey) && e.key === "k") {
     e.preventDefault();
@@ -138,3 +147,34 @@ search.addEventListener("keydown", (e) => {
     search.dispatchEvent(new Event("input"));
   }
 });
+
+///////////////////////////////////
+// Handle Copy model ID function
+///////////////////////////////////
+(window as any).copyModelId = async (
+  button: HTMLButtonElement,
+  modelId: string
+) => {
+  try {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(modelId);
+
+      // Switch to check icon
+      const copyIcon = button.querySelector(".copy-icon") as HTMLElement;
+      const checkIcon = button.querySelector(".check-icon") as HTMLElement;
+
+      copyIcon.style.display = "none";
+      checkIcon.style.display = "block";
+      button.style.color = "var(--color-brand)";
+
+      // Switch back after 1 second
+      setTimeout(() => {
+        copyIcon.style.display = "block";
+        checkIcon.style.display = "none";
+        button.style.color = "";
+      }, 1000);
+    }
+  } catch (err) {
+    console.error("Failed to copy text: ", err);
+  }
+};
