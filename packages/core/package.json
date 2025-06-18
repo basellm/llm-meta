@@ -1,5 +1,6 @@
 {
-  "name": "@models.dev/core",
+  "name": "models.dev",
+  "version": "0.0.0",
   "$schema": "https://json.schemastore.org/package.json",
   "type": "module",
   "dependencies": {
