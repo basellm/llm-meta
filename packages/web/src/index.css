@@ -295,51 +295,50 @@ tbody {
     font-size: 0.8125rem;
     font-family: var(--font-mono);
   }
-}
 
-.model-id-cell {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
+  .model-id-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
 
-.model-id-text {
-  flex: 1;
-  min-width: 0;
-}
+  .model-id-text {
+    flex: 1;
+    min-width: 0;
+  }
 
-.copy-button {
-  flex: 0 0 auto;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  color: var(--color-text-tertiary);
-  opacity: 0;
-  transition: opacity 0.2s ease, color 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .copy-button {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    color: var(--color-text-tertiary);
+    opacity: 0;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.model-id-cell:hover .copy-button {
-  opacity: 1;
-}
+  .model-id-cell:hover .copy-button {
+    opacity: 1;
+  }
 
-.copy-button:hover {
-  color: var(--color-text);
-  background-color: var(--color-surface);
-}
+  .copy-button:hover {
+    color: var(--color-text);
+    background-color: var(--color-surface);
+  }
 
-.copy-button:active {
-  transform: scale(0.95);
-}
+  .copy-button:active {
+    transform: scale(0.95);
+  }
 
-.copy-button.copied {
-  color: var(--color-brand) !important;
+  .copy-button.copied {
+    color: var(--color-brand) !important;
+  }
 }
 
 dialog::backdrop {
