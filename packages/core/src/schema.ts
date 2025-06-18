@@ -33,8 +33,22 @@ export const Provider = z
     id: z.string().toLowerCase(),
     env: z.array(z.string()).min(1, "Provider env cannot be empty"),
     npm: z.string().min(1, "Provider npm module cannot be empty").optional(),
+    api: z.string().optional(),
     name: z.string().min(1, "Provider name cannot be empty"),
     models: z.record(Model),
   })
-  .strict();
+  .strict()
+  .refine(
+    (data) => {
+      return (
+        (data.npm === "@ai-sdk/openai-compatible" && data.api !== undefined) ||
+        (data.npm !== "@ai-sdk/openai-compatible" && data.api === undefined)
+      );
+    },
+    {
+      message:
+        "'api' field is required if and only if npm is '@ai-sdk/openai-compatible'",
+      path: ["api"],
+    }
+  );
 export type Provider = z.infer<typeof Provider>;
