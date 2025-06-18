@@ -145,8 +145,8 @@ export const Rendered = renderToString(
                       ? `$${model.cost.cache_write}`
                       : "-"}
                   </td>
-                  <td>{model.limit.context}</td>
-                  <td>{model.limit.output}</td>
+                  <td>{model.limit.context.toLocaleString()}</td>
+                  <td>{model.limit.output.toLocaleString()}</td>
                 </tr>
               ))
           )}
