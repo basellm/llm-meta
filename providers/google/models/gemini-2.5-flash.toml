@@ -1,0 +1,13 @@
+name = "Gemini 2.5 Flash"
+attachment = true
+reasoning = true
+temperature = true
+
+[cost]
+input = 0.30
+output = 2.50
+cache_read = 0.075
+
+[limit]
+context = 1_048_576
+output = 65_536
