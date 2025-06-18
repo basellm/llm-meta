@@ -165,13 +165,11 @@ search.addEventListener("keydown", (e) => {
 
       copyIcon.style.display = "none";
       checkIcon.style.display = "block";
-      button.style.color = "var(--color-brand)";
 
       // Switch back after 1 second
       setTimeout(() => {
         copyIcon.style.display = "block";
         checkIcon.style.display = "none";
-        button.style.color = "";
       }, 1000);
     }
   } catch (err) {
