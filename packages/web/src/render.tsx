@@ -68,6 +68,18 @@ export const Rendered = renderToString(
           <th class="sortable" data-column="temperature" data-type="boolean">
             Temperature <span class="sort-indicator"></span>
           </th>
+          <th class="sortable" data-column="knowledge" data-type="text">
+            Knowledge <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="tool_call" data-type="boolean">
+            Tool Call <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="inputModalities" data-type="text">
+            Input <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-column="outputModalities" data-type="text">
+            Output <span class="sort-indicator"></span>
+          </th>
           <th class="sortable" data-column="inputCost" data-type="number">
             <div class="header-container">
               <span class="header-text">
@@ -180,6 +192,10 @@ export const Rendered = renderToString(
                   <td>{model.attachment ? "Yes" : "No"}</td>
                   <td>{model.reasoning ? "Yes" : "No"}</td>
                   <td>{model.temperature ? "Yes" : "No"}</td>
+                  <td>{model.knowledge ? model.knowledge.substring(0, 7) : "-"}</td>
+                  <td>{model.tool_call ? "Yes" : "No"}</td>
+                  <td>{model.input_modalities ? model.input_modalities.join(", ") : "-"}</td>
+                  <td>{model.output_modalities ? model.output_modalities.join(", ") : "-"}</td>
                   <td>${model.cost.input}</td>
                   <td>${model.cost.output}</td>
                   <td>
