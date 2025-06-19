@@ -7,14 +7,19 @@ export const Model = z
     attachment: z.boolean(),
     reasoning: z.boolean(),
     temperature: z.boolean(),
-    tool_call: z.boolean().optional(),
-    knowledge: z.string().optional(),
-    input_modalities: z
-      .array(z.enum(["text", "audio", "image", "video", "pdf"]))
+    tool_call: z.boolean(),
+    knowledge: z
+      .string()
+      .regex(/^\d{4}-\d{2}(-\d{2})?$/, {
+        message: "Must be in YYYY-MM or YYYY-MM-DD format",
+      })
       .optional(),
-    output_modalities: z
-      .array(z.enum(["text", "audio", "image", "video", "pdf"]))
-      .optional(),
+    input_modalities: z.array(
+      z.enum(["text", "audio", "image", "video", "pdf"])
+    ),
+    output_modalities: z.array(
+      z.enum(["text", "audio", "image", "video", "pdf"])
+    ),
     cost: z.object({
       input: z.number().min(0, "Input price cannot be negative"),
       output: z.number().min(0, "Output price cannot be negative"),
