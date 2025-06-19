@@ -47,31 +47,31 @@ export const Rendered = renderToString(
     <table>
       <thead>
         <tr>
-          <th class="sortable" data-column="provider" data-type="text">
+          <th class="sortable" data-type="text">
             Provider <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="model" data-type="text">
+          <th class="sortable" data-type="text">
             Model <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="providerId" data-type="text">
+          <th class="sortable" data-type="text">
             Provider ID <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="modelId" data-type="text">
+          <th class="sortable" data-type="text">
             Model ID <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="tool_call" data-type="boolean">
+          <th class="sortable" data-type="boolean">
             Tool Call <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="reasoning" data-type="boolean">
+          <th class="sortable" data-type="boolean">
             Reasoning <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="inputModalities" data-type="text">
+          <th class="sortable" data-type="modalities">
             Input <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="outputModalities" data-type="text">
+          <th class="sortable" data-type="modalities">
             Output <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="inputCost" data-type="number">
+          <th class="sortable" data-type="number">
             <div class="header-container">
               <span class="header-text">
                 Input Cost
@@ -81,7 +81,7 @@ export const Rendered = renderToString(
               <span class="sort-indicator"></span>
             </div>
           </th>
-          <th class="sortable" data-column="outputCost" data-type="number">
+          <th class="sortable" data-type="number">
             <div class="header-container">
               <span class="header-text">
                 Output Cost
@@ -91,7 +91,7 @@ export const Rendered = renderToString(
               <span class="sort-indicator"></span>
             </div>
           </th>
-          <th class="sortable" data-column="cacheReadCost" data-type="number">
+          <th class="sortable" data-type="number">
             <div class="header-container">
               <span class="header-text">
                 Cache Read Cost
@@ -101,7 +101,7 @@ export const Rendered = renderToString(
               <span class="sort-indicator"></span>
             </div>
           </th>
-          <th class="sortable" data-column="cacheWriteCost" data-type="number">
+          <th class="sortable" data-type="number">
             <div class="header-container">
               <span class="header-text">
                 Cache Write Cost
@@ -111,16 +111,16 @@ export const Rendered = renderToString(
               <span class="sort-indicator"></span>
             </div>
           </th>
-          <th class="sortable" data-column="contextLimit" data-type="number">
+          <th class="sortable" data-type="number">
             Context Limit <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="outputLimit" data-type="number">
+          <th class="sortable" data-type="number">
             Output Limit <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="temperature" data-type="boolean">
+          <th class="sortable" data-type="boolean">
             Temperature <span class="sort-indicator"></span>
           </th>
-          <th class="sortable" data-column="knowledge" data-type="text">
+          <th class="sortable" data-type="text">
             Knowledge <span class="sort-indicator"></span>
           </th>
         </tr>

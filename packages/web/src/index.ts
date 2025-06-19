@@ -31,9 +31,9 @@ modal.addEventListener("click", (e) => {
 ////////////////////
 // Handle Sorting
 ////////////////////
-let currentSort = { column: "", direction: "asc" };
+let currentSort = { column: -1, direction: "asc" };
 
-function sortTable(column: string, type: string) {
+function sortTable(column: number, type: string) {
   const tbody = document.querySelector("table tbody")!;
   const rows = Array.from(
     tbody.querySelectorAll("tr")
@@ -45,26 +45,9 @@ function sortTable(column: string, type: string) {
       : "asc";
   currentSort = { column, direction };
 
-  const columnIndex =
-    {
-      provider: 0,
-      model: 1,
-      providerId: 2,
-      modelId: 3,
-      attachment: 4,
-      reasoning: 5,
-      temperature: 6,
-      inputCost: 7,
-      outputCost: 8,
-      cacheReadCost: 9,
-      cacheWriteCost: 10,
-      contextLimit: 11,
-      outputLimit: 12,
-    }[column] || 0;
-
   rows.sort((a, b) => {
-    const aValue = getCellValue(a.cells[columnIndex], type);
-    const bValue = getCellValue(b.cells[columnIndex], type);
+    const aValue = getCellValue(a.cells[column], type);
+    const bValue = getCellValue(b.cells[column], type);
 
     // Handle undefined values - always sort to bottom
     if (aValue === undefined && bValue === undefined) return 0;
@@ -72,7 +55,7 @@ function sortTable(column: string, type: string) {
     if (bValue === undefined) return -1;
 
     let comparison = 0;
-    if (type === "number") {
+    if (type === "number" || type === "modalities") {
       comparison = (aValue as number) - (bValue as number);
     } else if (type === "boolean") {
       comparison = (aValue as string).localeCompare(bValue as string);
@@ -87,10 +70,10 @@ function sortTable(column: string, type: string) {
 
   // update sort indicators
   const headers = document.querySelectorAll("th.sortable");
-  headers.forEach((header) => {
+  headers.forEach((header, i) => {
     const indicator = header.querySelector(".sort-indicator")!;
 
-    if (header.getAttribute("data-column") === column) {
+    if (i === column) {
       indicator.textContent = direction === "asc" ? "↑" : "↓";
     } else {
       indicator.textContent = "";
@@ -102,6 +85,9 @@ function getCellValue(
   cell: HTMLTableCellElement,
   type: string
 ): string | number | undefined {
+  if (type === "modalities")
+    return cell.querySelectorAll(".modality-icon").length;
+
   const text = cell.textContent?.trim() || "";
   if (text === "-") return;
   if (type === "number") return parseFloat(text.replace(/[$,]/g, "")) || 0;
@@ -110,7 +96,7 @@ function getCellValue(
 
 document.querySelectorAll("th.sortable").forEach((header) => {
   header.addEventListener("click", () => {
-    const column = header.getAttribute("data-column")!;
+    const column = Array.from(header.parentElement!.children).indexOf(header);
     const type = header.getAttribute("data-type")!;
     sortTable(column, type);
   });
