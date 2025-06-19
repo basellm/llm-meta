@@ -7,6 +7,10 @@ export const Model = z
     attachment: z.boolean(),
     reasoning: z.boolean(),
     temperature: z.boolean(),
+    tool_call: z.boolean().optional(),
+    knowledge: z.string().optional(),
+    input_modalities: z.array(z.enum(["text", "audio", "image", "video", "pad"])).optional(),
+    output_modalities: z.array(z.enum(["text", "audio", "image", "video", "pad"])).optional(),
     cost: z.object({
       input: z.number().min(0, "Input price cannot be negative"),
       output: z.number().min(0, "Output price cannot be negative"),
