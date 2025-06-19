@@ -1,7 +1,11 @@
 name = "Mistral Small"
 attachment = false
-reasoning = true
+reasoning = false
 temperature = true
+knowledge = "2025-03"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.10

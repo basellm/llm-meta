@@ -1,7 +1,11 @@
 name = "Mixtral 8x22B"
 attachment = false
-reasoning = true
+reasoning = false
 temperature = true
+knowledge = "2024-04"
+tool_call = true
+input_modalities = ["text"]
+output_modalities = ["text"]
 
 [cost]
 input = 2.00
