@@ -1,4 +1,4 @@
-name = "GPT-4.1 Nano"
+name = "GPT-4.1 nano"
 attachment = true
 reasoning = false
 temperature = true
