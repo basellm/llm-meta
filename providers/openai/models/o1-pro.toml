@@ -2,6 +2,10 @@ name = "o1-pro"
 attachment = true
 reasoning = true
 temperature = false
+knowledge = "2023-10"
+tool_call = false
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 150.00

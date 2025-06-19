@@ -2,6 +2,10 @@ name = "o4-mini"
 attachment = true
 reasoning = true
 temperature = false
+knowledge = "2024-10"
+tool_call = false
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 1.10

@@ -2,6 +2,10 @@ name = "GPT-4o"
 attachment = true
 reasoning = false
 temperature = true
+knowledge = "2023-10"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 2.50
