@@ -3,7 +3,7 @@ attachment = true
 reasoning = true
 temperature = false
 knowledge = "2024-10"
-tool_call = false
+tool_call = true
 input_modalities = ["text", "image"]
 output_modalities = ["text"]
 

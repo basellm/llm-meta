@@ -195,7 +195,13 @@ export const Rendered = renderToString(
                   <td>
                     {model.knowledge ? model.knowledge.substring(0, 7) : "-"}
                   </td>
-                  <td>{model.tool_call ? "Yes" : "No"}</td>
+                  <td>
+                    {model.tool_call === undefined
+                      ? "-"
+                      : model.tool_call
+                      ? "Yes"
+                      : "No"}
+                  </td>
                   <td>
                     {model.input_modalities ? (
                       <div class="modalities">
