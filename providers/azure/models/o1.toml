@@ -2,6 +2,10 @@ name = "o1"
 attachment = false
 reasoning = true
 temperature = false
+knowledge = "2023-09"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 15.00

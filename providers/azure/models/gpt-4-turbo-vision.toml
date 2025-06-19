@@ -2,6 +2,10 @@ name = "GPT-4 Turbo Vision"
 attachment = true
 reasoning = false
 temperature = true
+knowledge = "2023-11"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 10.00
