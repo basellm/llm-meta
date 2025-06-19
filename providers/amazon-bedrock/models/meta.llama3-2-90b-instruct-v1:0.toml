@@ -2,6 +2,10 @@ name = "Llama 3.2 90B Instruct"
 attachment = true
 reasoning = false
 temperature = true
+knowledge = "2023-12"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.72

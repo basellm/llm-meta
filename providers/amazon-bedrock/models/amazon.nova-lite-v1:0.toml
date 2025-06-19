@@ -2,6 +2,10 @@ name = "Nova Lite"
 attachment = true
 reasoning = false
 temperature = true
+knowledge = "2024-10"
+tool_call = true
+input_modalities = ["text", "image", "video"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.06
