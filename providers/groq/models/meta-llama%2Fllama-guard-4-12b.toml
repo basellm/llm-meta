@@ -2,6 +2,10 @@ name = "Llama Guard 4 12B"
 attachment = false
 reasoning = false
 temperature = true
+knowledge = "n/a"
+tool_call = false
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.20
