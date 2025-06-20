@@ -14,7 +14,7 @@ const getModalityIcon = (modality: string) => {
   switch (modality) {
     case "text":
       return (
-        <span class="modality-icon" title="Text">
+        <span class="modality-icon" data-tooltip="Text">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -34,7 +34,7 @@ const getModalityIcon = (modality: string) => {
       );
     case "image":
       return (
-        <span class="modality-icon" title="Image">
+        <span class="modality-icon" data-tooltip="Image">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -46,14 +46,7 @@ const getModalityIcon = (modality: string) => {
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <rect
-              width="18"
-              height="18"
-              x="3"
-              y="3"
-              rx="2"
-              ry="2"
-            ></rect>
+            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
             <circle cx="9" cy="9" r="2"></circle>
             <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
           </svg>
@@ -61,7 +54,7 @@ const getModalityIcon = (modality: string) => {
       );
     case "audio":
       return (
-        <span class="modality-icon" title="Audio">
+        <span class="modality-icon" data-tooltip="Audio">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -80,7 +73,7 @@ const getModalityIcon = (modality: string) => {
       );
     case "video":
       return (
-        <span class="modality-icon" title="Video">
+        <span class="modality-icon" data-tooltip="Video">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -93,20 +86,13 @@ const getModalityIcon = (modality: string) => {
             stroke-linejoin="round"
           >
             <path d="m22 8-6 4 6 4V8Z"></path>
-            <rect
-              width="14"
-              height="12"
-              x="2"
-              y="6"
-              rx="2"
-              ry="2"
-            ></rect>
+            <rect width="14" height="12" x="2" y="6" rx="2" ry="2"></rect>
           </svg>
         </span>
       );
     case "pdf":
       return (
-        <span class="modality-icon" title="PDF">
+        <span class="modality-icon" data-tooltip="PDF">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -266,7 +252,6 @@ export const Rendered = renderToString(
                     <button
                       class="copy-button"
                       onclick={`copyModelId(this, '${modelId}')`}
-                      title="Copy model ID"
                     >
                       <svg
                         class="copy-icon"
@@ -311,12 +296,16 @@ export const Rendered = renderToString(
                   <td>{model.reasoning ? "Yes" : "No"}</td>
                   <td>
                     <div class="modalities">
-                      {model.input_modalities?.map((modality) => getModalityIcon(modality))}
+                      {model.input_modalities?.map((modality) =>
+                        getModalityIcon(modality)
+                      )}
                     </div>
                   </td>
                   <td>
                     <div class="modalities">
-                      {model.output_modalities?.map((modality) => getModalityIcon(modality))}
+                      {model.output_modalities?.map((modality) =>
+                        getModalityIcon(modality)
+                      )}
                     </div>
                   </td>
                   <td>${model.cost.input}</td>

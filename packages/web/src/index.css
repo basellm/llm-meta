@@ -79,6 +79,7 @@ header {
   background-color: var(--color-background);
   position: fixed;
   width: 100%;
+  z-index: 10;
 
   &>div {
     display: flex;
@@ -229,6 +230,7 @@ table thead th {
   color: var(--color-text-secondary);
   backdrop-filter: blur(6px);
   background-color: var(--color-alpha-background);
+  z-index: 10;
 }
 
 table thead th .header-container {
@@ -275,8 +277,7 @@ tbody {
   }
 
   td:nth-child(5),
-  td:nth-child(6),
-  td:nth-child(7) {
+  td:nth-child(6) {
     font-size: 0.8125rem;
     font-family: var(--font-mono);
     text-transform: uppercase;
@@ -284,7 +285,6 @@ tbody {
 
   td:nth-child(3),
   td:nth-child(4),
-  td:nth-child(8),
   td:nth-child(9),
   td:nth-child(10),
   td:nth-child(11),
@@ -354,6 +354,30 @@ tbody {
     border-radius: 2px;
     background-color: var(--color-background);
     color: var(--color-text-secondary);
+    position: relative;
+  }
+
+  .modality-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 4px;
+    padding: 4px 6px;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    font-size: 0.75rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 100;
+  }
+
+  .modality-icon:hover::after {
+    opacity: 1;
   }
 }
 
