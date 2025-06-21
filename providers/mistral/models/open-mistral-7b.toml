@@ -1,4 +1,6 @@
 name = "Mistral 7B"
+release_date = "2023-09-27"
+last_updated = "2023-09-27"
 attachment = false
 reasoning = false
 temperature = true

@@ -1,4 +1,6 @@
 name = "DeepSeek Chat"
+release_date = "2024-12-26"
+last_updated = "2024-03-24"
 attachment = true
 reasoning = true
 temperature = true
