@@ -14,6 +14,18 @@ export const Model = z
         message: "Must be in YYYY-MM or YYYY-MM-DD format",
       })
       .optional(),
+    release_date: z
+      .string()
+      .regex(/^\d{4}-\d{2}(-\d{2})?$/, {
+        message: "Must be in YYYY-MM or YYYY-MM-DD format",
+      })
+      .optional(),
+    last_updated: z
+      .string()
+      .regex(/^\d{4}-\d{2}(-\d{2})?$/, {
+        message: "Must be in YYYY-MM or YYYY-MM-DD format",
+      })
+      .optional(),
     input_modalities: z.array(
       z.enum(["text", "audio", "image", "video", "pdf"])
     ),
