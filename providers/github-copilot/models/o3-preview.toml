@@ -1,0 +1,16 @@
+name = "o3 (Preview)"
+attachment = false
+reasoning = true
+temperature = false
+knowledge = "2024-10"
+tool_call = false
+input_modalities = ["text"]
+output_modalities = ["text"]
+
+[cost]
+input = 0.00
+output = 0.00
+
+[limit]
+context = 200_000
+output = 65_536
