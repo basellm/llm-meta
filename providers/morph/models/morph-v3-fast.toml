@@ -2,6 +2,9 @@ name = "Morph v3 Fast"
 attachment = false
 reasoning = false
 temperature = false
+tool_call = false
+input_modalities = ["text"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.80

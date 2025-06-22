@@ -2,6 +2,10 @@ name = "Llama 3 70B"
 attachment = false
 reasoning = false
 temperature = true
+knowledge = "2023-03"
+tool_call = true
+input_modalities = ["text"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.59

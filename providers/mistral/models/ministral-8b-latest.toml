@@ -1,7 +1,11 @@
 name = "Ministral 8B"
 attachment = false
-reasoning = true
+reasoning = false
 temperature = true
+knowledge = "2024-10"
+tool_call = true
+input_modalities = ["text"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.10

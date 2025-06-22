@@ -79,6 +79,7 @@ header {
   background-color: var(--color-background);
   position: fixed;
   width: 100%;
+  z-index: 10;
 
   &>div {
     display: flex;
@@ -136,20 +137,38 @@ header {
     }
   }
 
-  input {
+  .search-container {
+    position: relative;
     flex: 1 1 auto;
+    min-width: 12.5rem;
+  }
+
+  input {
+    width: 100%;
     font-size: 0.8125rem;
     line-height: 1.1;
-    padding: 0.5rem 0.625rem;
+    padding: 0.5rem 2.5rem 0.5rem 0.625rem;
     border-radius: 0.25rem;
     border: 1px solid var(--color-border);
     height: 2rem;
     background: none;
+    color: var(--color-text);
 
     &:focus {
       border-color: var(--color-brand);
       outline: none;
     }
+  }
+
+  .search-shortcut {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   }
 
   button {
@@ -211,12 +230,17 @@ table thead th {
   color: var(--color-text-secondary);
   backdrop-filter: blur(6px);
   background-color: var(--color-alpha-background);
+  z-index: 10;
 }
 
-table thead th[data-desc]::after {
+table thead th .header-container {
+  display: flex;
+  align-items: center;
+}
+
+table thead th .desc {
   color: var(--color-text-tertiary);
   margin-top: 0.5em;
-  content: attr(data-desc);
   display: block;
   font-size: 0.625rem;
   font-weight: normal;
@@ -240,15 +264,20 @@ tbody {
   }
 
   td:nth-child(1),
-  td:nth-child(2) {
+  td:nth-child(2),
+  td:nth-child(5),
+  td:nth-child(6),
+  td:nth-child(9),
+  td:nth-child(10),
+  td:nth-child(11),
+  td:nth-child(12),
+  td:nth-child(13),
+  td:nth-child(14) {
     color: var(--color-text);
   }
 
-  td:nth-child(5) {}
-
   td:nth-child(5),
-  td:nth-child(6),
-  td:nth-child(7) {
+  td:nth-child(6) {
     font-size: 0.8125rem;
     font-family: var(--font-mono);
     text-transform: uppercase;
@@ -256,7 +285,6 @@ tbody {
 
   td:nth-child(3),
   td:nth-child(4),
-  td:nth-child(8),
   td:nth-child(9),
   td:nth-child(10),
   td:nth-child(11),
@@ -264,6 +292,92 @@ tbody {
   td:nth-child(13) {
     font-size: 0.8125rem;
     font-family: var(--font-mono);
+  }
+
+  .model-id-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .model-id-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .copy-button {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    color: var(--color-text-tertiary);
+    opacity: 0;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .model-id-cell:hover .copy-button {
+    opacity: 1;
+  }
+
+  .copy-button:hover {
+    color: var(--color-text);
+    background-color: var(--color-surface);
+  }
+
+  .copy-button:active {
+    transform: scale(0.95);
+  }
+
+  .copy-button.copied {
+    color: var(--color-brand) !important;
+  }
+
+  .modalities {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .modality-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    position: relative;
+  }
+
+  .modality-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 4px;
+    padding: 4px 6px;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    font-size: 0.75rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 100;
+  }
+
+  .modality-icon:hover::after {
+    opacity: 1;
   }
 }
 

@@ -2,6 +2,10 @@ name = "o1-preview"
 attachment = false
 reasoning = true
 temperature = true
+knowledge = "2023-09"
+tool_call = false
+input_modalities = ["text"]
+output_modalities = ["text"]
 
 [cost]
 input = 15.00

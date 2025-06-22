@@ -1,7 +1,11 @@
 name = "Pixtral Large"
 attachment = true
-reasoning = true
+reasoning = false
 temperature = true
+knowledge = "2024-11"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 2.00

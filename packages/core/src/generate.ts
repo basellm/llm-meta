@@ -16,7 +16,12 @@ export async function generate(directory: string) {
     }).then((mod) => mod.default);
     toml.id = providerID;
     toml.models = {};
-    const provider = Provider.parse(toml);
+    const provider = Provider.safeParse(toml);
+    if (!provider.success) {
+      provider.error.cause = toml;
+      throw provider.error;
+    }
+
     const modelsPath = path.join(directory, providerID, "models");
     for await (const modelPath of new Bun.Glob("**/*.toml").scan({
       cwd: modelsPath,
@@ -29,10 +34,14 @@ export async function generate(directory: string) {
         },
       }).then((mod) => mod.default);
       toml.id = modelID;
-      const model = Model.parse(toml);
-      provider.models[modelID] = model;
+      const model = Model.safeParse(toml);
+      if (!model.success) {
+        model.error.cause = toml;
+        throw model.error;
+      }
+      provider.data.models[modelID] = model.data;
     }
-    result[providerID] = provider;
+    result[providerID] = provider.data;
   }
 
   return result;

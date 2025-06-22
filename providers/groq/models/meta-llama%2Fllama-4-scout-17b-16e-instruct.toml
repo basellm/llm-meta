@@ -2,6 +2,10 @@ name = "Llama 4 Scout 17B"
 attachment = false
 reasoning = false
 temperature = true
+knowledge = "2024-08"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.11

@@ -2,6 +2,10 @@ name = "Claude 3 Sonnet"
 attachment = true
 reasoning = false
 temperature = true
+knowledge = "2023-08"
+tool_call = true
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 3.00

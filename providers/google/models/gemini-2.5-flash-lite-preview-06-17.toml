@@ -1,0 +1,17 @@
+name = "Gemini 2.5 Flash Lite Preview 06-17"
+attachment = true
+reasoning = true
+temperature = true
+knowledge = "2024-11"
+tool_call = true
+input_modalities = ["text", "image", "audio", "video"]
+output_modalities = ["text"]
+
+[cost]
+input = 0.10
+output = 0.40
+cache_read = 0.025
+
+[limit]
+context = 65_536
+output = 65_536

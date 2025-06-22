@@ -2,6 +2,10 @@ name = "DeepSeek Chat"
 attachment = true
 reasoning = true
 temperature = true
+knowledge = "2024-07"
+tool_call = true
+input_modalities = ["text"]
+output_modalities = ["text"]
 
 [cost]
 input = 0.27

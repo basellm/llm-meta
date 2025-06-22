@@ -2,6 +2,10 @@ name = "Claude 4 Opus"
 attachment = true
 reasoning = true
 temperature = true
+tool_call = true
+knowledge = "2025-03-31"
+input_modalities = ["text", "image"]
+output_modalities = ["text"]
 
 [cost]
 input = 15.00

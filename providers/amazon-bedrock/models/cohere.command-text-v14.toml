@@ -2,6 +2,10 @@ name = "Command"
 attachment = false
 reasoning = false
 temperature = true
+knowledge = "2023-08"
+tool_call = false
+input_modalities = ["text"]
+output_modalities = ["text"]
 
 [cost]
 input = 1.50

@@ -1,0 +1,16 @@
+name = "Cerebras-Llama-4-Maverick-17B-128E-Instruct"
+attachment = true
+reasoning = false
+temperature = true
+knowledge = "2025-01"
+tool_call = true
+input_modalities = ["text"]
+output_modalities = ["text"]
+
+[cost]
+input = 0.00
+output = 0.00
+
+[limit]
+context = 128_000
+output = 4_096
