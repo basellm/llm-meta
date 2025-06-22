@@ -2,3 +2,4 @@ name = "GitHub Copilot"
 env = []
 npm = "@ai-sdk/openai-compatible"
 doc = "https://docs.github.com/en/copilot"
+api= "https://api.githubcopilot.com"
