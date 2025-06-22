@@ -1,0 +1,13 @@
+name = "Gemini 1.5 Pro"
+attachment = true
+reasoning = false
+temperature = true
+
+[cost]
+input = 1.25
+output = 5.00
+cache_read = 0.3125
+
+[limit]
+context = 2_000_000
+output = 8_192

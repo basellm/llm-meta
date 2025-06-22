@@ -1,0 +1,13 @@
+name = "Gemini 2.5 Pro Preview 06-05"
+attachment = true
+reasoning = true
+temperature = true
+
+[cost]
+input = 1.25
+output = 10.00
+cache_read = 0.31
+
+[limit]
+context = 1_048_576
+output = 65_536
