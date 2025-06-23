@@ -7,7 +7,7 @@ temperature = true
 tool_call = true
 input_modalities = ["text", "image"]
 output_modalities = ["text"]
-open = false
+open_weights = false
 
 [cost]
 input = 15.00

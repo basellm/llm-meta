@@ -330,7 +330,7 @@ export const Rendered = renderToString(
                   <td>{model.limit.context.toLocaleString()}</td>
                   <td>{model.limit.output.toLocaleString()}</td>
                   <td>{model.temperature ? "Yes" : "No"}</td>
-                  <td>{model.open ? "Open" : "Closed"}</td>
+                  <td>{model.open_weights ? "Open" : "Closed"}</td>
                   <td>
                     {model.knowledge ? model.knowledge.substring(0, 7) : "-"}
                   </td>

@@ -8,7 +8,7 @@ knowledge = "2023-12"
 tool_call = true
 input_modalities = ["text"]
 output_modalities = ["text"]
-open = true
+open_weights = true
 
 [cost]
 input = 0.59
