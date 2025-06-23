@@ -1,4 +1,6 @@
 name = "Devstral"
+release_date = "2025-05-07"
+last_updated = "2025-05-07"
 attachment = false
 reasoning = false
 temperature = true

@@ -1,4 +1,6 @@
 name = "Grok Vision Beta"
+release_date = "2024-11-01"
+last_updated = "2024-11-01"
 attachment = true
 reasoning = false
 temperature = true

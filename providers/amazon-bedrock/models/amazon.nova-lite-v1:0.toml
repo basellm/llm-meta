@@ -1,4 +1,6 @@
 name = "Nova Lite"
+release_date = "2024-12-03"
+last_updated = "2024-12-03"
 attachment = true
 reasoning = false
 temperature = true

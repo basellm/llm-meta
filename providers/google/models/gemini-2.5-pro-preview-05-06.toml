@@ -1,4 +1,6 @@
 name = "Gemini 2.5 Pro Preview 05-06"
+release_date = "2025-05-06"
+last_updated = "2025-05-06"
 attachment = true
 reasoning = true
 temperature = true

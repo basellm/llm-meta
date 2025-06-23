@@ -1,4 +1,6 @@
 name = "GPT-4 Turbo"
+release_date = "2023-11-06"
+last_updated = "2024-04-09"
 attachment = true
 reasoning = false
 temperature = true

@@ -1,4 +1,6 @@
 name = "GPT-4.1"
+release_date = "2025-04-14"
+last_updated = "2025-04-14"
 attachment = true
 reasoning = false
 temperature = true

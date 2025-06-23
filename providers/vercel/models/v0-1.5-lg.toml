@@ -1,4 +1,6 @@
 name = "v0-1.5-lg"
+release_date = "2025-06-09"
+last_updated = "2025-06-09"
 attachment = true
 reasoning = true
 temperature = true

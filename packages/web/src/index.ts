@@ -4,6 +4,40 @@ const help = document.getElementById("help")!;
 const search = document.getElementById("search")! as HTMLInputElement;
 
 /////////////////////////
+// URL State Management
+/////////////////////////
+function getQueryParams() {
+  return new URLSearchParams(window.location.search);
+}
+
+function updateQueryParams(updates: Record<string, string | null>) {
+  const params = getQueryParams();
+  for (const [key, value] of Object.entries(updates)) {
+    if (value) {
+      params.set(key, value);
+    } else {
+      params.delete(key);
+    }
+  }
+  const newPath = params.toString()
+    ? `${window.location.pathname}?${params.toString()}`
+    : window.location.pathname;
+  window.history.pushState({}, "", newPath);
+}
+
+function getColumnNameForURL(headerEl: Element): string {
+  const text = headerEl.textContent?.trim().toLowerCase() || "";
+  return text.replace(/↑|↓/g, "").trim().split(/\s+/).slice(0, 2).join("-");
+}
+
+function getColumnIndexByUrlName(name: string): number {
+  const headers = document.querySelectorAll("th.sortable");
+  return Array.from(headers).findIndex(
+    (header) => getColumnNameForURL(header) === name
+  );
+}
+
+/////////////////////////
 // Handle "How to use"
 /////////////////////////
 let y = 0;
@@ -33,21 +67,26 @@ modal.addEventListener("click", (e) => {
 ////////////////////
 let currentSort = { column: -1, direction: "asc" };
 
-function sortTable(column: number, type: string) {
+function sortTable(column: number, direction: "asc" | "desc") {
+  const header = document.querySelectorAll("th.sortable")[column];
+  const columnType = header.getAttribute("data-type");
+  if (!columnType) return;
+
+  // update state
+  currentSort = { column, direction };
+  updateQueryParams({
+    sort: getColumnNameForURL(header),
+    order: direction,
+  });
+
+  // sort rows
   const tbody = document.querySelector("table tbody")!;
   const rows = Array.from(
     tbody.querySelectorAll("tr")
   ) as HTMLTableRowElement[];
-
-  const direction =
-    currentSort.column === column && currentSort.direction === "asc"
-      ? "desc"
-      : "asc";
-  currentSort = { column, direction };
-
   rows.sort((a, b) => {
-    const aValue = getCellValue(a.cells[column], type);
-    const bValue = getCellValue(b.cells[column], type);
+    const aValue = getCellValue(a.cells[column], columnType);
+    const bValue = getCellValue(b.cells[column], columnType);
 
     // Handle undefined values - always sort to bottom
     if (aValue === undefined && bValue === undefined) return 0;
@@ -55,9 +94,9 @@ function sortTable(column: number, type: string) {
     if (bValue === undefined) return -1;
 
     let comparison = 0;
-    if (type === "number" || type === "modalities") {
+    if (columnType === "number" || columnType === "modalities") {
       comparison = (aValue as number) - (bValue as number);
-    } else if (type === "boolean") {
+    } else if (columnType === "boolean") {
       comparison = (aValue as string).localeCompare(bValue as string);
     } else {
       comparison = (aValue as string).localeCompare(bValue as string);
@@ -65,7 +104,6 @@ function sortTable(column: number, type: string) {
 
     return direction === "asc" ? comparison : -comparison;
   });
-
   rows.forEach((row) => tbody.appendChild(row));
 
   // update sort indicators
@@ -97,16 +135,19 @@ function getCellValue(
 document.querySelectorAll("th.sortable").forEach((header) => {
   header.addEventListener("click", () => {
     const column = Array.from(header.parentElement!.children).indexOf(header);
-    const type = header.getAttribute("data-type")!;
-    sortTable(column, type);
+    const direction =
+      currentSort.column === column && currentSort.direction === "asc"
+        ? "desc"
+        : "asc";
+    sortTable(column, direction);
   });
 });
 
 ///////////////////
 // Handle Search
 ///////////////////
-search.addEventListener("input", () => {
-  const value = search.value.toLowerCase();
+function filterTable(value: string) {
+  const lowerCaseValue = value.toLowerCase();
   const rows = document.querySelectorAll(
     "table tbody tr"
   ) as NodeListOf<HTMLTableRowElement>;
@@ -115,9 +156,15 @@ search.addEventListener("input", () => {
     const cellTexts = Array.from(row.cells).map((cell) =>
       cell.textContent!.toLowerCase()
     );
-    const isVisible = cellTexts.some((text) => text.includes(value));
+    const isVisible = cellTexts.some((text) => text.includes(lowerCaseValue));
     row.style.display = isVisible ? "" : "none";
   });
+
+  updateQueryParams({ search: value || null });
+}
+
+search.addEventListener("input", () => {
+  filterTable(search.value);
 });
 
 document.addEventListener("keydown", (e) => {
@@ -162,3 +209,31 @@ search.addEventListener("keydown", (e) => {
     console.error("Failed to copy text: ", err);
   }
 };
+
+///////////////////////////////////
+// Initialize State from URL
+///////////////////////////////////
+function initializeFromURL() {
+  const params = getQueryParams();
+
+  (() => {
+    const searchQuery = params.get("search");
+    if (!searchQuery) return;
+    search.value = searchQuery;
+    filterTable(searchQuery);
+  })();
+
+  (() => {
+    const columnName = params.get("sort");
+    if (!columnName) return;
+
+    const columnIndex = getColumnIndexByUrlName(columnName);
+    if (columnIndex === -1) return;
+
+    const direction = (params.get("order") as "asc" | "desc") || "asc";
+    sortTable(columnIndex, direction);
+  })();
+}
+
+document.addEventListener("DOMContentLoaded", initializeFromURL);
+window.addEventListener("popstate", initializeFromURL);

@@ -1,4 +1,6 @@
 name = "GPT-4 32K"
+release_date = "2023-03-14"
+last_updated = "2023-03-14"
 attachment = false
 reasoning = false
 temperature = true

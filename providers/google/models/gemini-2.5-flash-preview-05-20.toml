@@ -1,4 +1,6 @@
 name = "Gemini 2.5 Flash Preview 05-20"
+release_date = "2025-05-20"
+last_updated = "2025-05-20"
 attachment = true
 reasoning = true
 temperature = true

@@ -230,6 +230,12 @@ export const Rendered = renderToString(
           <th class="sortable" data-type="text">
             Knowledge <span class="sort-indicator"></span>
           </th>
+          <th class="sortable" data-type="text">
+            Release Date <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-type="text">
+            Last Updated <span class="sort-indicator"></span>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -324,6 +330,8 @@ export const Rendered = renderToString(
                   <td>
                     {model.knowledge ? model.knowledge.substring(0, 7) : "-"}
                   </td>
+                  <td>{model.release_date}</td>
+                  <td>{model.last_updated}</td>
                 </tr>
               ))
           )}
