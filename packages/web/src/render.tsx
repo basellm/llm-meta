@@ -309,14 +309,14 @@ export const Rendered = renderToString(
                   <td>{model.reasoning ? "Yes" : "No"}</td>
                   <td>
                     <div class="modalities">
-                      {model.input_modalities?.map((modality) =>
+                      {model.modalities.input.map((modality) =>
                         getModalityIcon(modality)
                       )}
                     </div>
                   </td>
                   <td>
                     <div class="modalities">
-                      {model.output_modalities?.map((modality) =>
+                      {model.modalities.output.map((modality) =>
                         getModalityIcon(modality)
                       )}
                     </div>

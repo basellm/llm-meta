@@ -51,25 +51,27 @@ Create a new TOML file in the provider's `models/` directory where the filename 
 
 ```toml
 name = "Model Display Name"
-attachment = true     # or false - supports file attachments
-reasoning = false     # or true - supports reasoning / chain-of-thought
-tool_call = true      # or false - supports tool calling
-temperature = true    # or false - supports temperature control
-knowledge = "2024-04" # Knowledge-cutoff date
-input_modalities = ["text", "image"] # Supported input modalities
-output_modalities = ["text"]         # Supported output modalities
-release_date = "2025-02-19"          # First public release date
-last_updated = "2025-02-19"          # Most recent update date
+attachment = true           # or false - supports file attachments
+reasoning = false           # or true - supports reasoning / chain-of-thought
+tool_call = true            # or false - supports tool calling
+temperature = true          # or false - supports temperature control
+knowledge = "2024-04"       # Knowledge-cutoff date
+release_date = "2025-02-19" # First public release date
+last_updated = "2025-02-19" # Most recent update date
 
 [cost]
-input = 3.00          # Cost per million input tokens (USD)
-output = 15.00        # Cost per million output tokens (USD)
-cache_read = 0.30     # Cost per million cached read tokens (USD)
-cache_write = 3.75    # Cost per million cached write tokens (USD)
+input = 3.00                # Cost per million input tokens (USD)
+output = 15.00              # Cost per million output tokens (USD)
+cache_read = 0.30           # Cost per million cached read tokens (USD)
+cache_write = 3.75          # Cost per million cached write tokens (USD)
 
 [limit]
-context = 200_000     # Maximum context window (tokens)
-output = 8_192        # Maximum output tokens
+context = 200_000           # Maximum context window (tokens)
+output = 8_192              # Maximum output tokens
+
+[modalities]
+input = ["text", "image"]   # Supported input modalities
+output = ["text"]           # Supported output modalities
 ```
 
 #### 3. Submit a Pull Request
@@ -104,8 +106,6 @@ Models must conform to the following schema, as defined in `app/schemas.ts`.
 - `tool_call`: Boolean - Supports tool calling
 - `temperature`: Boolean — Supports temperature control
 - `knowledge` _(optional)_: String — Knowledge-cutoff date in `YYYY-MM` or `YYYY-MM-DD` format
-- `input_modalities`: Array of strings — Supported input modalities (e.g., ["text", "image"])
-- `output_modalities`: Array of strings — Supported output modalities (e.g., ["text"])
 - `release_date`: String — First public release date in `YYYY-MM` or `YYYY-MM-DD`
 - `last_updated`: String — Most recent update date in `YYYY-MM` or `YYYY-MM-DD`
 - `cost.input` _(optional)_: Number — Cost per million input tokens (USD)
@@ -114,6 +114,8 @@ Models must conform to the following schema, as defined in `app/schemas.ts`.
 - `cost.cache_write` _(optional)_: Number — Cost per million cached write tokens (USD)
 - `limit.context`: Number — Maximum context window (tokens)
 - `limit.output`: Number — Maximum output tokens
+- `modalities.input`: Array of strings — Supported input modalities (e.g., ["text", "image", "audio", "video", "pdf"])
+- `modalities.putput`: Array of strings — Supported output modalities (e.g., ["text"])
 
 ### Examples
 

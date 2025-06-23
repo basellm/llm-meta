@@ -6,8 +6,6 @@ reasoning = true
 temperature = true
 knowledge = "2023-09"
 tool_call = false
-input_modalities = ["text"]
-output_modalities = ["text"]
 open_weights = false
 
 [cost]
@@ -18,3 +16,7 @@ cache_read = 7.50
 [limit]
 context = 128_000
 output = 32_768
+
+[modalities]
+input = ["text"]
+output = ["text"]

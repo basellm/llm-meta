@@ -20,12 +20,10 @@ export const Model = z
     last_updated: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/, {
       message: "Must be in YYYY-MM or YYYY-MM-DD format",
     }),
-    input_modalities: z.array(
-      z.enum(["text", "audio", "image", "video", "pdf"])
-    ),
-    output_modalities: z.array(
-      z.enum(["text", "audio", "image", "video", "pdf"])
-    ),
+    modalities: z.object({
+      input: z.array(z.enum(["text", "audio", "image", "video", "pdf"])),
+      output: z.array(z.enum(["text", "audio", "image", "video", "pdf"])),
+    }),
     open_weights: z.boolean(),
     cost: z
       .object({

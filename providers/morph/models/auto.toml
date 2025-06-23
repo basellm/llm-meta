@@ -5,8 +5,6 @@ attachment = false
 reasoning = false
 temperature = false
 tool_call = false
-input_modalities = ["text"]
-output_modalities = ["text"]
 open_weights = false
 
 [cost]
@@ -16,3 +14,7 @@ output = 1.55
 [limit]
 context = 32_000
 output = 32_000 
+
+[modalities]
+input = ["text"]
+output = ["text"]

@@ -6,8 +6,6 @@ reasoning = false
 temperature = true
 knowledge = "2021-08"
 tool_call = false
-input_modalities = ["text"]
-output_modalities = ["text"]
 open_weights = false
 
 [cost]
@@ -17,3 +15,7 @@ output = 4.00
 [limit]
 context = 16384
 output = 16384
+
+[modalities]
+input = ["text"]
+output = ["text"]
