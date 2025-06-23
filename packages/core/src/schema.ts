@@ -27,18 +27,20 @@ export const Model = z
       z.enum(["text", "audio", "image", "video", "pdf"])
     ),
     open_weights: z.boolean(),
-    cost: z.object({
-      input: z.number().min(0, "Input price cannot be negative"),
-      output: z.number().min(0, "Output price cannot be negative"),
-      cache_read: z
-        .number()
-        .min(0, "Cache read price cannot be negative")
-        .optional(),
-      cache_write: z
-        .number()
-        .min(0, "Cache write price cannot be negative")
-        .optional(),
-    }),
+    cost: z
+      .object({
+        input: z.number().min(0, "Input price cannot be negative"),
+        output: z.number().min(0, "Output price cannot be negative"),
+        cache_read: z
+          .number()
+          .min(0, "Cache read price cannot be negative")
+          .optional(),
+        cache_write: z
+          .number()
+          .min(0, "Cache write price cannot be negative")
+          .optional(),
+      })
+      .optional(),
     limit: z.object({
       context: z.number().min(0, "Context window must be positive"),
       output: z.number().min(0, "Output tokens must be positive"),

@@ -10,10 +10,6 @@ input_modalities = ["text"]
 output_modalities = ["text"]
 open_weights = true
 
-[cost]
-input = 0.00
-output = 0.00
-
 [limit]
 context = 128_000
 output = 4_096

@@ -1,17 +1,14 @@
 name = "Gemini 2.5 Pro Preview 05-06"
+release_date = "2025-05-06"
+last_updated = "2025-05-06"
 attachment = true
 reasoning = false
 temperature = true
 tool_call = true
 knowledge = "2024-11"
-input_modalities = ["text", "image", "pdf"]
+input_modalities = ["text", "image", "audio", "video"]
 output_modalities = ["text"]
-
-[cost]
-input = 1.25
-output = 10.00
-cache_read = 0.31
-cache_write = 1.63
+open_weights = false
 
 [limit]
 context = 1_048_576

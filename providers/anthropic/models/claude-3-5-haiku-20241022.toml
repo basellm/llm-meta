@@ -1,4 +1,4 @@
-name = "Claude 3.5 Haiku"
+name = "Claude Haiku 3.5"
 release_date = "2024-10-22"
 last_updated = "2024-10-22"
 attachment = true
@@ -14,7 +14,7 @@ open_weights = false
 input = 0.80
 output = 4.00
 cache_read = 0.08
-cache_write = 0.08
+cache_write = 1.00
 
 [limit]
 context = 200_000
