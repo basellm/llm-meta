@@ -228,6 +228,9 @@ export const Rendered = renderToString(
             Temperature <span class="sort-indicator"></span>
           </th>
           <th class="sortable" data-type="text">
+            Weights <span class="sort-indicator"></span>
+          </th>
+          <th class="sortable" data-type="text">
             Knowledge <span class="sort-indicator"></span>
           </th>
           <th class="sortable" data-type="text">
@@ -327,6 +330,7 @@ export const Rendered = renderToString(
                   <td>{model.limit.context.toLocaleString()}</td>
                   <td>{model.limit.output.toLocaleString()}</td>
                   <td>{model.temperature ? "Yes" : "No"}</td>
+                  <td>{model.open ? "Open" : "Closed"}</td>
                   <td>
                     {model.knowledge ? model.knowledge.substring(0, 7) : "-"}
                   </td>

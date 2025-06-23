@@ -8,6 +8,7 @@ knowledge = "2024-04"
 tool_call = true
 input_modalities = ["text"]
 output_modalities = ["text"]
+open = false
 
 [cost]
 input = 1.50

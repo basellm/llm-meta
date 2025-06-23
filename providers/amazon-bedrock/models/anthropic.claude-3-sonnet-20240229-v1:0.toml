@@ -8,6 +8,7 @@ knowledge = "2023-08"
 tool_call = true
 input_modalities = ["text", "image"]
 output_modalities = ["text"]
+open = false
 
 [cost]
 input = 3.00

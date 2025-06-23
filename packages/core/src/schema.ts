@@ -26,6 +26,7 @@ export const Model = z
     output_modalities: z.array(
       z.enum(["text", "audio", "image", "video", "pdf"])
     ),
+    open: z.boolean(),
     cost: z.object({
       input: z.number().min(0, "Input price cannot be negative"),
       output: z.number().min(0, "Output price cannot be negative"),

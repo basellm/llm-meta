@@ -8,6 +8,7 @@ knowledge = "2024-11"
 tool_call = true
 input_modalities = ["text", "image", "audio", "video", "pdf"]
 output_modalities = ["text"]
+open = false
 
 [cost]
 input = 1.25
