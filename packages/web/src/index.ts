@@ -67,21 +67,26 @@ modal.addEventListener("click", (e) => {
 ////////////////////
 let currentSort = { column: -1, direction: "asc" };
 
-function sortTable(column: number, type: string) {
+function sortTable(column: number, direction: "asc" | "desc") {
+  const header = document.querySelectorAll("th.sortable")[column];
+  const columnType = header.getAttribute("data-type");
+  if (!columnType) return;
+
+  // update state
+  currentSort = { column, direction };
+  updateQueryParams({
+    sort: getColumnNameForURL(header),
+    order: direction,
+  });
+
+  // sort rows
   const tbody = document.querySelector("table tbody")!;
   const rows = Array.from(
     tbody.querySelectorAll("tr")
   ) as HTMLTableRowElement[];
-
-  const direction =
-    currentSort.column === column && currentSort.direction === "asc"
-      ? "desc"
-      : "asc";
-  currentSort = { column, direction };
-
   rows.sort((a, b) => {
-    const aValue = getCellValue(a.cells[column], type);
-    const bValue = getCellValue(b.cells[column], type);
+    const aValue = getCellValue(a.cells[column], columnType);
+    const bValue = getCellValue(b.cells[column], columnType);
 
     // Handle undefined values - always sort to bottom
     if (aValue === undefined && bValue === undefined) return 0;
@@ -89,9 +94,9 @@ function sortTable(column: number, type: string) {
     if (bValue === undefined) return -1;
 
     let comparison = 0;
-    if (type === "number" || type === "modalities") {
+    if (columnType === "number" || columnType === "modalities") {
       comparison = (aValue as number) - (bValue as number);
-    } else if (type === "boolean") {
+    } else if (columnType === "boolean") {
       comparison = (aValue as string).localeCompare(bValue as string);
     } else {
       comparison = (aValue as string).localeCompare(bValue as string);
@@ -99,7 +104,6 @@ function sortTable(column: number, type: string) {
 
     return direction === "asc" ? comparison : -comparison;
   });
-
   rows.forEach((row) => tbody.appendChild(row));
 
   // update sort indicators
@@ -112,12 +116,6 @@ function sortTable(column: number, type: string) {
     } else {
       indicator.textContent = "";
     }
-  });
-
-  const header = headers[column];
-  updateQueryParams({
-    sort: getColumnNameForURL(header),
-    order: direction,
   });
 }
 
@@ -137,8 +135,11 @@ function getCellValue(
 document.querySelectorAll("th.sortable").forEach((header) => {
   header.addEventListener("click", () => {
     const column = Array.from(header.parentElement!.children).indexOf(header);
-    const type = header.getAttribute("data-type")!;
-    sortTable(column, type);
+    const direction =
+      currentSort.column === column && currentSort.direction === "asc"
+        ? "desc"
+        : "asc";
+    sortTable(column, direction);
   });
 });
 
@@ -215,26 +216,23 @@ search.addEventListener("keydown", (e) => {
 function initializeFromURL() {
   const params = getQueryParams();
 
-  const searchQuery = params.get("search");
-  if (searchQuery) {
+  (() => {
+    const searchQuery = params.get("search");
+    if (!searchQuery) return;
     search.value = searchQuery;
     filterTable(searchQuery);
-  }
+  })();
 
-  const sortColumn = params.get("sort");
-  if (sortColumn) {
-    const columnIndex = getColumnIndexByUrlName(sortColumn);
-    if (columnIndex !== -1) {
-      const header = document.querySelectorAll("th.sortable")[columnIndex];
-      const type = header.getAttribute("data-type");
-      if (type) {
-        const sortDirection = (params.get("order") as "asc" | "desc") || "asc";
-        // Set opposite direction so sortTable toggles to the correct one
-        currentSort.direction = sortDirection === "asc" ? "desc" : "asc";
-        sortTable(columnIndex, type);
-      }
-    }
-  }
+  (() => {
+    const columnName = params.get("sort");
+    if (!columnName) return;
+
+    const columnIndex = getColumnIndexByUrlName(columnName);
+    if (columnIndex === -1) return;
+
+    const direction = (params.get("order") as "asc" | "desc") || "asc";
+    sortTable(columnIndex, direction);
+  })();
 }
 
 document.addEventListener("DOMContentLoaded", initializeFromURL);
