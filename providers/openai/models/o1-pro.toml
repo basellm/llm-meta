@@ -1,4 +1,7 @@
 name = "o1-pro"
+release_date = "2025-03-19"
+last_updated = "2025-03-19"
+
 attachment = true
 reasoning = true
 temperature = false
@@ -6,6 +9,7 @@ knowledge = "2023-09"
 tool_call = true
 input_modalities = ["text", "image"]
 output_modalities = ["text"]
+open_weights = false
 
 [cost]
 input = 150.00

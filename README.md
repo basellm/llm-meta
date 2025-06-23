@@ -92,16 +92,19 @@ Models must conform to the following schema, as defined in `app/schemas.ts`.
 
 **Model Schema:**
 
-- `name`: String - Display name of the model
-- `attachment`: Boolean - Whether the model supports file attachments
-- `reasoning`: Boolean - Whether the model supports reasoning capabilities
-- `temperature`: Boolean - Whether the model supports temperature control
-- `cost.input`: Number - Cost per million input tokens (USD)
-- `cost.output`: Number - Cost per million output tokens (USD)
-- `cost.inputCached`: Number - Cost per million cached input tokens (USD)
-- `cost.outputCached`: Number - Cost per million cached output tokens (USD)
-- `limit.context`: Number - Maximum context window in tokens
-- `limit.output`: Number - Maximum output tokens
+- `name`: String — Display name of the model
+- `attachment`: Boolean — Supports file attachments
+- `reasoning`: Boolean — Supports reasoning / chain-of-thought
+- `temperature`: Boolean — Supports temperature control
+- `knowledge` _(optional)_: String — Knowledge-cutoff date in `YYYY-MM` or `YYYY-MM-DD` format
+- `release_date` _(optional)_: String — First public release date (`YYYY-MM` or `YYYY-MM-DD`)
+- `last_updated` _(optional)_: String — Most recent substantive update (`YYYY-MM` or `YYYY-MM-DD`)
+- `cost.input`: Number — Cost per million input tokens (USD)
+- `cost.output`: Number — Cost per million output tokens (USD)
+- `cost.inputCached`: Number — Cost per million cached input tokens (USD)
+- `cost.outputCached`: Number — Cost per million cached output tokens (USD)
+- `limit.context`: Number — Maximum context window (tokens)
+- `limit.output`: Number — Maximum output tokens
 
 ### Examples
 

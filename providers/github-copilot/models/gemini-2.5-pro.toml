@@ -1,0 +1,20 @@
+name = "Gemini 2.5 Pro (Preview)"
+release_date = "2025-03-20"
+last_updated = "2025-06-05"
+attachment = true
+reasoning = false
+temperature = true
+knowledge = "2024-04"
+tool_call = true
+input_modalities = ["text", "image", "audio", "video"]
+output_modalities = ["text"]
+open_weights = false
+
+[cost]
+input = 0.00
+output = 0.00
+cache_read = 0.00
+
+[limit]
+context = 2_000_000
+output = 8_192

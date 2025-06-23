@@ -1,4 +1,6 @@
 name = "Codex Mini"
+release_date = "2025-05-16"
+last_updated = "2025-05-16"
 attachment = true
 reasoning = true
 temperature = false
@@ -6,6 +8,7 @@ knowledge = "2024-04"
 tool_call = true
 input_modalities = ["text"]
 output_modalities = ["text"]
+open_weights = false
 
 [cost]
 input = 1.50
