@@ -117,6 +117,10 @@ const getModalityIcon = (modality: string) => {
   }
 };
 
+const renderCost = (cost?: number) => {
+  return cost === undefined ? "-" : `$${cost.toFixed(2)}`;
+};
+
 export const Rendered = renderToString(
   <Fragment>
     <header>
@@ -317,16 +321,10 @@ export const Rendered = renderToString(
                       )}
                     </div>
                   </td>
-                  <td>{model.cost?.input ? `$${model.cost.input}` : "-"}</td>
-                  <td>{model.cost?.output ? `$${model.cost.output}` : "-"}</td>
-                  <td>
-                    {model.cost?.cache_read ? `$${model.cost.cache_read}` : "-"}
-                  </td>
-                  <td>
-                    {model.cost?.cache_write
-                      ? `$${model.cost.cache_write}`
-                      : "-"}
-                  </td>
+                  <td>{renderCost(model.cost?.input)}</td>
+                  <td>{renderCost(model.cost?.output)}</td>
+                  <td>{renderCost(model.cost?.cache_read)}</td>
+                  <td>{renderCost(model.cost?.cache_write)}</td>
                   <td>{model.limit.context.toLocaleString()}</td>
                   <td>{model.limit.output.toLocaleString()}</td>
                   <td>{model.temperature ? "Yes" : "No"}</td>
