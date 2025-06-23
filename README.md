@@ -51,15 +51,21 @@ Create a new TOML file in the provider's `models/` directory where the filename 
 
 ```toml
 name = "Model Display Name"
-attachment = true  # or false - supports file attachments
-reasoning = false  # or true - supports reasoning/chain-of-thought
-temperature = true # or false - supports temperature parameter
+attachment = true     # or false - supports file attachments
+reasoning = false     # or true - supports reasoning / chain-of-thought
+tool_call = true      # or false - supports tool calling
+temperature = true    # or false - supports temperature control
+knowledge = "2024-04" # Knowledge-cutoff date
+input_modalities = ["text", "image"] # Supported input modalities
+output_modalities = ["text"]         # Supported output modalities
+release_date = "2025-02-19"          # First public release date
+last_updated = "2025-02-19"          # Most recent update date
 
 [cost]
 input = 3.00          # Cost per million input tokens (USD)
 output = 15.00        # Cost per million output tokens (USD)
-inputCached = 0.30    # Cost per million cached input tokens (USD)
-outputCached = 0.30   # Cost per million cached output tokens (USD)
+cache_read = 0.30     # Cost per million cached read tokens (USD)
+cache_write = 3.75    # Cost per million cached write tokens (USD)
 
 [limit]
 context = 200_000     # Maximum context window (tokens)
@@ -95,14 +101,17 @@ Models must conform to the following schema, as defined in `app/schemas.ts`.
 - `name`: String — Display name of the model
 - `attachment`: Boolean — Supports file attachments
 - `reasoning`: Boolean — Supports reasoning / chain-of-thought
+- `tool_call`: Boolean - Supports tool calling
 - `temperature`: Boolean — Supports temperature control
 - `knowledge` _(optional)_: String — Knowledge-cutoff date in `YYYY-MM` or `YYYY-MM-DD` format
-- `release_date` _(optional)_: String — First public release date (`YYYY-MM` or `YYYY-MM-DD`)
-- `last_updated` _(optional)_: String — Most recent substantive update (`YYYY-MM` or `YYYY-MM-DD`)
-- `cost.input`: Number — Cost per million input tokens (USD)
-- `cost.output`: Number — Cost per million output tokens (USD)
-- `cost.inputCached`: Number — Cost per million cached input tokens (USD)
-- `cost.outputCached`: Number — Cost per million cached output tokens (USD)
+- `input_modalities`: Array of strings — Supported input modalities (e.g., ["text", "image"])
+- `output_modalities`: Array of strings — Supported output modalities (e.g., ["text"])
+- `release_date`: String — First public release date in `YYYY-MM` or `YYYY-MM-DD`
+- `last_updated`: String — Most recent update date in `YYYY-MM` or `YYYY-MM-DD`
+- `cost.input` _(optional)_: Number — Cost per million input tokens (USD)
+- `cost.output` _(optional)_: Number — Cost per million output tokens (USD)
+- `cost.cache_read` _(optional)_: Number — Cost per million cached read tokens (USD)
+- `cost.cache_write` _(optional)_: Number — Cost per million cached write tokens (USD)
 - `limit.context`: Number — Maximum context window (tokens)
 - `limit.output`: Number — Maximum output tokens
 
