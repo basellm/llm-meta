@@ -1,15 +1,15 @@
-name = "Claude Sonnet 4 (Preview)"
-release_date = "2025-05-22"
-last_updated = "2025-05-22"
+name = "GPT-4.1"
+release_date = "2025-04-14"
+last_updated = "2025-04-14"
 attachment = true
 reasoning = false
 temperature = true
-knowledge = "2024-04"
 tool_call = true
+knowledge = "2024-04"
 input_modalities = ["text", "image"]
 output_modalities = ["text"]
 open_weights = false
 
 [limit]
-context = 200_000
-output = 8_192
+context = 1_047_576
+output = 32_768

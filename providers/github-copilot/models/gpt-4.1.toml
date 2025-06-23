@@ -10,11 +10,6 @@ input_modalities = ["text", "image"]
 output_modalities = ["text"]
 open_weights = false
 
-[cost]
-input = 0.00
-output = 0.00
-cache_read = 0.00
-
 [limit]
 context = 128_000
 output = 16_384

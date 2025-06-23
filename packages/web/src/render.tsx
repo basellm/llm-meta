@@ -317,13 +317,13 @@ export const Rendered = renderToString(
                       )}
                     </div>
                   </td>
-                  <td>${model.cost.input}</td>
-                  <td>${model.cost.output}</td>
+                  <td>{model.cost?.input ? `$${model.cost.input}` : "-"}</td>
+                  <td>{model.cost?.output ? `$${model.cost.output}` : "-"}</td>
                   <td>
-                    {model.cost.cache_read ? `$${model.cost.cache_read}` : "-"}
+                    {model.cost?.cache_read ? `$${model.cost.cache_read}` : "-"}
                   </td>
                   <td>
-                    {model.cost.cache_write
+                    {model.cost?.cache_write
                       ? `$${model.cost.cache_write}`
                       : "-"}
                   </td>
