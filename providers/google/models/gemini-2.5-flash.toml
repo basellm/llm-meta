@@ -4,9 +4,9 @@ last_updated = "2025-06-05"
 attachment = true
 reasoning = true
 temperature = true
-knowledge = "2024-11"
+knowledge = "2025-01"
 tool_call = true
-input_modalities = ["text", "image", "audio", "video"]
+input_modalities = ["text", "image", "audio", "video", "pdf"]
 output_modalities = ["text"]
 open_weights = false
 
