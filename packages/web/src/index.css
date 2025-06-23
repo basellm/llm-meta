@@ -238,6 +238,10 @@ table thead th .header-container {
   align-items: center;
 }
 
+th.sortable {
+  cursor: pointer;
+}
+
 table thead th .desc {
   color: var(--color-text-tertiary);
   margin-top: 0.5em;

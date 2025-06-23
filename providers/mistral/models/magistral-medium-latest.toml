@@ -1,4 +1,6 @@
 name = "Magistral Medium"
+release_date = "2025-03-17"
+last_updated = "2025-03-20"
 attachment = false
 reasoning = true
 temperature = true
@@ -6,6 +8,7 @@ knowledge = "2025-06"
 tool_call = true
 input_modalities = ["text"]
 output_modalities = ["text"]
+open_weights = true
 
 [cost]
 input = 2.00

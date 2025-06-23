@@ -1,4 +1,6 @@
 name = "Claude Opus 4"
+release_date = "2025-05-22"
+last_updated = "2025-05-22"
 attachment = true
 reasoning = true
 temperature = true
@@ -6,6 +8,7 @@ knowledge = "2024-04"
 tool_call = true
 input_modalities = ["text", "image"]
 output_modalities = ["text"]
+open_weights = false
 
 [cost]
 input = 15.00

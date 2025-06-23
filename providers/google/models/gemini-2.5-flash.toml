@@ -1,4 +1,6 @@
 name = "Gemini 2.5 Flash"
+release_date = "2025-03-20"
+last_updated = "2025-06-05"
 attachment = true
 reasoning = true
 temperature = true
@@ -6,6 +8,7 @@ knowledge = "2024-11"
 tool_call = true
 input_modalities = ["text", "image", "audio", "video"]
 output_modalities = ["text"]
+open_weights = false
 
 [cost]
 input = 0.30

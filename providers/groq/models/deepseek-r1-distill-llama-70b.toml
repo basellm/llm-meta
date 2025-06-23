@@ -1,4 +1,6 @@
 name = "DeepSeek R1 Distill Llama 70B"
+release_date = "2025-01-20"
+last_updated = "2025-01-20"
 attachment = false
 reasoning = true
 temperature = true
@@ -6,6 +8,7 @@ knowledge = "2024-07"
 tool_call = true
 input_modalities = ["text"]
 output_modalities = ["text"]
+open_weights = true
 
 [cost]
 input = 0.75

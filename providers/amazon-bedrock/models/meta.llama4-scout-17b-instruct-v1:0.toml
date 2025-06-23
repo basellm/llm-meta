@@ -1,4 +1,6 @@
 name = "Llama 4 Scout 17B Instruct"
+release_date = "2025-04-05"
+last_updated = "2025-04-05"
 attachment = true
 reasoning = false
 temperature = true
@@ -6,6 +8,7 @@ knowledge = "2024-08"
 tool_call = true
 input_modalities = ["text", "image"]
 output_modalities = ["text"]
+open_weights = true
 
 [cost]
 input = 0.17
