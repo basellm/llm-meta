@@ -4,14 +4,19 @@ last_updated = "2024-12-11"
 attachment = true
 reasoning = false
 temperature = true
+knowledge = "2024-06"
 tool_call = true
-knowledge = "2024-11"
 open_weights = false
 
+[cost]
+input = 0.10
+output = 0.40
+cache_read = 0.025
+
 [limit]
-context = 1_000_000
-output = 8192
+context = 1_048_576
+output = 8_192
 
 [modalities]
-input = ["text", "image", "audio", "video"]
+input = ["text", "image", "audio", "video", "pdf"]
 output = ["text"]
