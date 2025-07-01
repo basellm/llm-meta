@@ -115,7 +115,7 @@ Models must conform to the following schema, as defined in `app/schemas.ts`.
 - `limit.context`: Number — Maximum context window (tokens)
 - `limit.output`: Number — Maximum output tokens
 - `modalities.input`: Array of strings — Supported input modalities (e.g., ["text", "image", "audio", "video", "pdf"])
-- `modalities.putput`: Array of strings — Supported output modalities (e.g., ["text"])
+- `modalities.output`: Array of strings — Supported output modalities (e.g., ["text"])
 
 ### Examples
 
