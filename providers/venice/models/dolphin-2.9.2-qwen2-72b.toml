@@ -6,6 +6,7 @@ temperature = true
 knowledge = "2021-09"
 release_date = "2025-05-21"
 last_updated = "2025-05-21"
+open_weights = true
 
 [cost]
 input = 0.7
