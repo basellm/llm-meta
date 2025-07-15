@@ -1,0 +1,4 @@
+name = "Venice AI"
+npm = "@ai-sdk/openai-compatible"
+doc = "https://docs.venice.ai
+api = "https://api.venice.ai/api/v1"
