@@ -18,7 +18,7 @@ export async function generate(directory: string) {
     toml.models = {};
     const provider = Provider.safeParse(toml);
     if (!provider.success) {
-      provider.error.cause = toml;
+      provider.error.cause = { providerPath, toml };
       throw provider.error;
     }
 
@@ -37,7 +37,7 @@ export async function generate(directory: string) {
       toml.id = modelID;
       const model = Model.safeParse(toml);
       if (!model.success) {
-        model.error.cause = toml;
+        model.error.cause = { modelPath, toml };
         throw model.error;
       }
       provider.data.models[modelID] = model.data;
