@@ -1,4 +1,4 @@
-name = "Qwen3 Coder"
+name = "Qwen3 Coder 480B A35B Instruct"
 release_date = "2025-07-23"
 last_updated = "2025-07-23"
 attachment = false
@@ -9,8 +9,8 @@ tool_call = true
 open_weights = true
 
 [cost]
-input = 0.3
-output = 1.2
+input = 0.4
+output = 1.6
 
 [limit]
 context = 262_144
