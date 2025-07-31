@@ -1,4 +1,4 @@
-name = "Mercury
+name = "Mercury"
 attachment = false     
 reasoning = false         
 tool_call = true      
