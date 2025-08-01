@@ -4,6 +4,7 @@
     "": {
       "name": "models.dev",
       "dependencies": {
+        "@cloudflare/workers-types": "^4.20250801.0",
         "sst": "3.17.5",
       },
     },
@@ -35,6 +36,8 @@
     "zod": "3.24.2",
   },
   "packages": {
+    "@cloudflare/workers-types": ["@cloudflare/workers-types@4.20250801.0", "", {}, "sha512-BQmMdoOGClY23TesgkR1PeGrPvPsSFD/zW7pDzWZHkOEsqkPk2A91h52bP8GbtKYTl1vdaYjQgJlGsP6Ih4G0w=="],
+
     "@modelcontextprotocol/sdk": ["@modelcontextprotocol/sdk@1.6.1", "", { "dependencies": { "content-type": "^1.0.5", "cors": "^2.8.5", "eventsource": "^3.0.2", "express": "^5.0.1", "express-rate-limit": "^7.5.0", "pkce-challenge": "^4.1.0", "raw-body": "^3.0.0", "zod": "^3.23.8", "zod-to-json-schema": "^3.24.1" } }, "sha512-oxzMzYCkZHMntzuyerehK3fV6A2Kwh5BD6CGEJSVDU2QNEhfLOptf2X7esQgaHZXHZY0oHmMsOtIDLP71UJXgA=="],
 
     "@models.dev/web": ["@models.dev/web@workspace:packages/web"],

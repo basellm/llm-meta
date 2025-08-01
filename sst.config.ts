@@ -8,6 +8,11 @@ export default $config({
     };
   },
   async run() {
+    $transform(cloudflare.WorkersScript, (script) => {
+      script.observability = {
+        enabled: true,
+      };
+    });
     const worker = new sst.cloudflare.StaticSite("MyWorker", {
       domain: $app.stage === "dev" ? "models.dev" : undefined,
       path: "./packages/web/",
