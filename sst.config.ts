@@ -14,9 +14,14 @@ export default $config({
       cwd: "./packages/web",
     });
 
+    const secrets = {
+      PosthogToken: new sst.Secret("PosthogToken"),
+    };
+
     const worker = new sst.cloudflare.Worker("Server", {
       url: true,
       domain: $app.stage === "dev" ? "models.dev" : undefined,
+      link: [secrets.PosthogToken],
       handler: "./packages/function/src/worker.ts",
       assets: {
         directory: "./packages/web/dist",

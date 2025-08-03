@@ -6,6 +6,10 @@
 import "sst"
 declare module "sst" {
   export interface Resource {
+    "PosthogToken": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
   }
 }
 // cloudflare 
