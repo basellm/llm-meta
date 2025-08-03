@@ -4,8 +4,8 @@ reasoning = false
 tool_call = true      
 temperature = true
 knowledge = "2023-10"
-release_date = "2025-06-26" # First public release date
-last_updated = "2025-07-31" # Most recent update date
+release_date = "2025-06-26"
+last_updated = "2025-07-31"
 
 [cost]
 input = 0.25
