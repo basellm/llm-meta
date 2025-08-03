@@ -8,17 +8,23 @@ export default $config({
     };
   },
   async run() {
-    $transform(cloudflare.WorkersScript, (script) => {
-      script.observability = {
-        enabled: true,
-      };
+    const { spawnSync } = await import("child_process");
+
+    spawnSync("./script/build.ts", [], {
+      cwd: "./packages/web",
     });
-    const worker = new sst.cloudflare.StaticSite("MyWorker", {
+
+    const worker = new sst.cloudflare.Worker("Server", {
+      url: true,
       domain: $app.stage === "dev" ? "models.dev" : undefined,
-      path: "./packages/web/",
-      build: {
-        output: "./dist",
-        command: "./script/build.ts",
+      handler: "./packages/function/src/worker.ts",
+      assets: {
+        directory: "./packages/web/dist",
+      },
+      transform: {
+        worker: {
+          observability: { enabled: true },
+        },
       },
     });
 
