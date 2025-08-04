@@ -8,6 +8,10 @@ knowledge = "2023-10"
 tool_call = true
 open_weights = true
 
+[cost]
+input = 0.00
+output = 0.00
+
 [limit]
 context = 16_000
 output = 4_096
