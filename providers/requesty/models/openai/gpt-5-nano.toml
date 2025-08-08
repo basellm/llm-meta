@@ -1,0 +1,22 @@
+name = "GPT-5 Nano"
+release_date = "2025-08-07"
+last_updated = "2025-08-07"
+attachment = false
+reasoning = false
+temperature = false
+tool_code = false
+knowledge = "2025-07"
+open_weights = false
+
+[cost]
+input = 0.10
+output = 0.40
+cache_read = 0.05
+
+[limit]
+context = 16_000
+output = 4_000
+
+[modalities]
+input = ["text"]
+output = ["text"]
